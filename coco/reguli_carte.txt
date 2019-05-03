@@ -1,0 +1,62 @@
+[scop]loc_concediu[/scop].
+
+[regula]
+nr:1 
+premise_regula: 
+	buget_disponibil # (mare)
+implicatie_regula:
+	in_romania | fc # (90)
+[/regula].
+
+[regula] 
+nr:6
+premise_regula:
+    in_romania
+    la_mare
+    tip_oferta # (sejur_1_luna)
+    buget_disponibil # (mare)
+    anotimp # (vara)
+implicatie_regula:
+    loc_concediu # (neptun) | fc # (80)
+[/regula].
+
+[regula]
+nr:16
+premise_regula:
+	la_mare
+	buget_disponibil # (mare)
+	anotimp # (iarna)
+implicatie_regula:
+	loc_concediu # (rio_de_janeiro) | fc # (100)
+[/regula].
+
+[intrebare]
+text # 'In ce anotimp preferati sa va petreceti concediul?'
+atributul_intrebarii # anotimp
+optiuni # {vara * iarna}
+[/intrebare].
+
+
+[intrebare]
+text # 'Preferati sa mergeti intr-o excursie, ori sa petreceti un sejur intr-o statiune?'
+atributul_intrebarii # tip_oferta
+optiuni # {sejur_2_saptamani * sejur_1_luna * excursie}
+[/intrebare].
+
+[intrebare]
+text # 'Preferati sa petreceti concediul la mare?'
+atributul_intrebarii # la_mare
+optiuni # {da * nu}
+[/intrebare].
+
+[intrebare]
+text # 'Preferati ca locul de petrecere a concediului sa fie mai aproape, ori mai departe de localitatea unde locuiti?'
+atributul_intrebarii # departare
+optiuni # {aproape * departe * foarte_departe}
+[/intrebare].
+
+[intrebare]
+text # 'Ce tip de  buget alocati pentru petrecerea concediului?'
+atributul_intrebarii # buget_disponibil
+optiuni # {redus * mediu * mare}
+[/intrebare].
