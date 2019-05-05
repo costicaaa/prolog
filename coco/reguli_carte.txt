@@ -1,14 +1,12 @@
 [scop]laptop[/scop].
 
-/// greutate 
-
 [regula]
 nr:1 
 premise_regula: 
 	locatie # (acasa)
     probleme_sanatate # not
 implicatie_regula:
-	greutate # (greu) | fc # (100)
+	greutate # (mare) | fc # (100)
 [/regula].
 
 [regula]
@@ -17,7 +15,7 @@ premise_regula:
 	locatie # (acasa)
     probleme_sanatate
 implicatie_regula:
-	greutate # (usor) | fc # (100)
+	greutate # (mica) | fc # (100)
 [/regula].
 
 
@@ -27,7 +25,7 @@ premise_regula:
 	locatie # (calatorii)
     probleme_sanatate # not
 implicatie_regula:
-	greutate # (greu) | fc # (80)
+	greutate # (mare) | fc # (80)
 [/regula].
 
 
@@ -37,7 +35,7 @@ premise_regula:
 	locatie # (calatorii)
     probleme_sanatate # not
 implicatie_regula:
-	greutate # (usor) | fc # (90)
+	greutate # (mica) | fc # (90)
 [/regula].
 
 [regula]
@@ -46,10 +44,10 @@ premise_regula:
 	locatie # (calatorii)
     probleme_sanatate
 implicatie_regula:
-	greutate # (usor) | fc # (100)
+	greutate # (mica) | fc # (100)
 [/regula].
 
-/// sistem_de_operare
+
 
 [regula]
 nr:6
@@ -58,7 +56,7 @@ premise_regula:
     vrea_sistem_operare
     mod_principal_utilizare # (gaming)
 implicatie_regula:
-	sistem_de_operare  # (windows) | fc # (100)
+	sistem_operare  # (windows) | fc # (100)
 [/regula].
 
 [regula]
@@ -68,7 +66,7 @@ premise_regula:
     vrea_sistem_operare # not
     mod_principal_utilizare # (gaming)
 implicatie_regula:
-	sistem_de_operare # (fara_sistem_operare) | fc # (100)
+	sistem_operare # (fara_sistem_operare) | fc # (100)
 [/regula].
 
 [regula]
@@ -78,7 +76,7 @@ premise_regula:
     vrea_sistem_operare
     mod_principal_utilizare # ( office )
 implicatie_regula:
-	sistem_de_operare  # (windows) | fc # (100)
+	sistem_operare  # (windows) | fc # (100)
 [/regula].
 
 [regula]
@@ -88,7 +86,7 @@ premise_regula:
     vrea_sistem_operare
     mod_principal_utilizare # (multimedia)
 implicatie_regula:
-	sistem_de_operare  # (windows) | fc # (100)
+	sistem_operare  # (windows) | fc # (100)
 [/regula].
 
 [regula]
@@ -98,7 +96,7 @@ premise_regula:
     vrea_sistem_operare
     mod_principal_utilizare # (multimedia)
 implicatie_regula:
-	sistem_de_operare  # ( windows ) | fc # (100)
+	sistem_operare  # ( windows ) | fc # (100)
 [/regula].
 
 [regula]
@@ -108,7 +106,7 @@ premise_regula:
     vrea_sistem_operare
     mod_principal_utilizare # (artist)
 implicatie_regula:
-	sistem_de_operare  # (macos) | fc # (100)
+	sistem_operare  # (macos) | fc # (100)
 [/regula].
 
 [regula]
@@ -118,10 +116,10 @@ premise_regula:
     vrea_sistem_operare # not
     mod_principal_utilizare # (multimedia)
 implicatie_regula:
-	sistem_de_operare # (fara_sistem_operare) | fc # (100)
+	sistem_operare # (fara_sistem_operare) | fc # (100)
 [/regula].
 
-/// dimensiune
+
 [regula]
 nr:13
 premise_regula: 
@@ -150,6 +148,15 @@ implicatie_regula:
 [/regula].
 
 [regula]
+nr:46
+premise_regula: 
+	locatie # (calatorii)
+    probleme_sanatate # not
+implicatie_regula:
+	greutate # (medie) | fc # (100)
+[/regula].
+
+[regula]
 nr:16
 premise_regula: 
 	greutate # (mare)
@@ -158,7 +165,6 @@ implicatie_regula:
 	dimensiune # (mare) | fc # (100)
 [/regula].
 
-/// placa_video
 [regula]
 nr:17
 premise_regula: 
@@ -177,7 +183,14 @@ implicatie_regula:
 	placa_video | fc # (100)
 [/regula].
 
-/// hibrid
+[regula]
+nr:47
+premise_regula: 
+	mod_principal_utilizare # (office)
+    jocuri # not
+implicatie_regula:
+	placa_video # not | fc # (100)
+[/regula].
 
 [regula]
 nr:19
@@ -187,7 +200,6 @@ implicatie_regula:
 	hibrid | fc # (100)
 [/regula].
 
-/// tip_storage
 [regula]
 nr:20
 premise_regula: 
@@ -196,6 +208,15 @@ premise_regula:
 implicatie_regula:
 	tip_storage # (ssd) | fc # (100)
 [/regula].
+
+[regula]
+nr:49
+premise_regula: 
+	fire_rabdatoare # not
+implicatie_regula:
+	tip_storage # (ssd) | fc # (100)
+[/regula].
+
 
 [regula]
 nr:21
@@ -243,7 +264,6 @@ implicatie_regula:
 	tip_storage # (ssd) | fc # (100)
 [/regula].
 
-/// ram
 [regula]
 nr:26
 premise_regula: 
@@ -258,10 +278,8 @@ implicatie_regula:
 nr:27
 premise_regula: 
 	fire_rabdatoare # not
-    mod_principal_utilizare # (multimedia)
-    nivel_utilizator # (incepator)
 implicatie_regula:
-	ram # (50) | fc # (80)
+	ram # (mediu) | fc # (80)
 [/regula].
 
 [regula]
@@ -365,7 +383,6 @@ implicatie_regula:
 	ram # (mult) | fc # (100)
 [/regula].
 
-/// solutii 
 [regula]
 nr:38 
 premise_regula: 
@@ -377,7 +394,7 @@ premise_regula:
     tip_storage # (ssd)
     ram # (mediu)
 implicatie_regula:
-	asus_ultrabook | fc # (100)
+    laptop # (asus_ultrabook) | fc # (100)
 [/regula].
 
 [regula]
@@ -392,7 +409,7 @@ premise_regula:
     ram # (mic)
     hibrid
 implicatie_regula:
-	2_in_1_asus | fc # (100)
+    laptop # (2_in_1_asus) | fc # (100)
 [/regula].
 
 [regula]
@@ -407,7 +424,7 @@ premise_regula:
     ram # (mic)
     hibrid
 implicatie_regula:
-	2_in_1_dell | fc # (100)
+    laptop # (2_in_1_dell) | fc # (100)
 [/regula].
 
 [regula]
@@ -421,7 +438,7 @@ premise_regula:
     tip_storage # (hdd)
     ram # (mediu)
 implicatie_regula:
-	gaming_asus | fc # (100)
+    laptop # (gaming_asus) | fc # (100)
 [/regula].
 
 [regula]
@@ -435,7 +452,8 @@ premise_regula:
     tip_storage # (ssd)
     ram # (mediu)
 implicatie_regula:
-	macbook | fc # (100)
+    laptop # (macbook) | fc # (100)
+
 [/regula].
 
 [regula]
@@ -443,13 +461,14 @@ nr:43
 premise_regula: 
 	buget # (mediu) 
     folosire_fara_priza # (rar)
-    sistem_operare # (Windows)
+    sistem_operare # (windows)
     dimensiune # (mare)
     placa_video # not
     tip_storage # (hdd)
     ram # (putin)
 implicatie_regula:
-	hp_probook_multimedia | fc # (100)
+    laptop # (hp_probook_multimedia) | fc # (100)
+
 [/regula].
 
 [regula]
@@ -463,7 +482,7 @@ premise_regula:
     tip_storage # (ssd)
     ram # (mult)
 implicatie_regula:
-	alienware | fc # (100)
+    laptop # (alienware) | fc # (100)
 [/regula].
 
 [regula]
@@ -477,70 +496,77 @@ premise_regula:
     tip_storage # (hdd)
     ram # (putin)
 implicatie_regula:
-	lenovo_multimedia | fc # (100)
+	laptop # (lenovo_multimedia) | fc # (100)
 [/regula].
 
 
-
-
-
-
-
-############ BIB EXAMPLE
-[regula] 
-nr:6
-premise_regula:
-    in_romania
-    la_mare
-    tip_oferta # (sejur_1_luna)
-    buget_disponibil # (mare)
-    anotimp # (vara)
-implicatie_regula:
-    loc_concediu # (neptun) | fc # (80)
-[/regula].
-
-[regula]
-nr:16
-premise_regula:
-	la_mare
-	buget_disponibil # (mare)
-	anotimp # (iarna)
-implicatie_regula:
-	loc_concediu # (rio_de_janeiro) | fc # (100)
-[/regula].
 
 
 [intrebare]
-text # 'In ce anotimp preferati sa va petreceti concediul?'
-atributul_intrebarii # anotimp
-optiuni # {vara * iarna}
+text # 'nivel_utilizator ( incepator, mediu, avansat )'
+atributul_intrebarii # nivel_utilizator
+optiuni # {incepator * mediu * avansat }
 [/intrebare].
 
 
 [intrebare]
-text # 'Preferati sa mergeti intr-o excursie, ori sa petreceti un sejur intr-o statiune?'
-atributul_intrebarii # tip_oferta
-optiuni # {sejur_2_saptamani * sejur_1_luna * excursie}
+text # 'buget ( mic, mediu, mare )'
+atributul_intrebarii # buget
+optiuni # {mic * mediu * mare}
 [/intrebare].
 
 [intrebare]
-text # 'Preferati sa petreceti concediul la mare?'
-atributul_intrebarii # la_mare
+text # 'fire_rabdatoare ( da, nu ) '
+atributul_intrebarii # fire_rabdatoare
 optiuni # {da * nu}
 [/intrebare].
 
 [intrebare]
-text # 'Preferati ca locul de petrecere a concediului sa fie mai aproape, ori mai departe de localitatea unde locuiti?'
-atributul_intrebarii # departare
-optiuni # {aproape * departe * foarte_departe}
+text # 'mod_principal_utilizare ( gaming, artist, office, multimedia)'
+atributul_intrebarii # mod_principal_utilizare
+optiuni # {gaming * artist * office * multimedia}
 [/intrebare].
 
 [intrebare]
-text # 'Ce tip de  buget alocati pentru petrecerea concediului?'
-atributul_intrebarii # buget_disponibil
-optiuni # {redus * mediu * mare}
+text # 'folosire_fara_priza ( rar, uneori, in_principal ) '
+atributul_intrebarii # folosire_fara_priza
+optiuni # {rar * uneori * in_principal}
 [/intrebare].
 
-############ END BIB EXAMPLE
+[intrebare]
+text # 'vrea_sistem_operare ( da, nu )'
+atributul_intrebarii # vrea_sistem_operare
+optiuni # {da * nu}
+[/intrebare].
+
+[intrebare]
+text # 'probleme_sanatate ( da, nu ) '
+atributul_intrebarii # probleme_sanatate
+optiuni # {da * nu}
+[/intrebare].
+
+[intrebare]
+text # 'jocuri ( da, nu ) '
+atributul_intrebarii # jocuri
+optiuni # {da * nu}
+[/intrebare].
+
+[intrebare]
+text # 'ecran  (mic * mediu * mare) '
+atributul_intrebarii # ecran 
+optiuni # {mic * mediu * mare}
+[/intrebare].
+
+[intrebare]
+text # 'locatie ( acasa, calatorii)  '
+atributul_intrebarii # locatie 
+optiuni # {acasa * calatorii}
+[/intrebare].
+
+[intrebare]
+text # 'tableta ( da , nu )'
+atributul_intrebarii # tableta 
+optiuni # {da * nu}
+[/intrebare].
 
 

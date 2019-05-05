@@ -1,0 +1,97 @@
+[scop]laptop[/scop].
+
+
+
+[regula]
+nr:6
+premise_regula: 
+    vrea_sistem_operare
+implicatie_regula:
+	sistem_operare  # (windows) | fc # (100)
+[/regula].
+
+[regula]
+nr:5
+premise_regula: 
+    probleme_sanatate
+implicatie_regula:
+	greutate # (mica) | fc # (100)
+[/regula].
+
+
+[regula]
+nr:38 
+premise_regula: 
+    sistem_operare # (windows)
+    greutate # (mica)
+implicatie_regula:
+    laptop # (asus_ultrabook) | fc # (100)
+[/regula].
+
+
+[intrebare]
+text # 'nivel_utilizator ( incepator, mediu, avansat )'
+atributul_intrebarii # nivel_utilizator
+optiuni # {incepator * mediu * avansat }
+[/intrebare].
+
+
+[intrebare]
+text # 'buget ( mic, mediu, mare )'
+atributul_intrebarii # buget
+optiuni # {mic * mediu * mare}
+[/intrebare].
+
+[intrebare]
+text # 'fire_rabdatoare ( da, nu ) '
+atributul_intrebarii # fire_rabdatoare
+optiuni # {da * nu}
+[/intrebare].
+
+[intrebare]
+text # 'mod_principal_utilizare ( gaming, artist, office, multimedia)'
+atributul_intrebarii # mod_principal_utilizare
+optiuni # {gaming * artist * office * multimedia}
+[/intrebare].
+
+[intrebare]
+text # 'folosire_fara_priza ( rar, uneori, in_principal ) '
+atributul_intrebarii # folosire_fara_priza
+optiuni # {rar * uneori * in_principal}
+[/intrebare].
+
+[intrebare]
+text # 'vrea_sistem_operare ( da, nu )'
+atributul_intrebarii # vrea_sistem_operare
+optiuni # {da * nu}
+[/intrebare].
+
+[intrebare]
+text # 'probleme_sanatate ( da, nu ) '
+atributul_intrebarii # probleme_sanatate
+optiuni # {da * nu}
+[/intrebare].
+
+[intrebare]
+text # 'jocuri ( da, nu ) '
+atributul_intrebarii # jocuri
+optiuni # {da * nu}
+[/intrebare].
+
+[intrebare]
+text # 'ecran  (mic * mediu * mare) '
+atributul_intrebarii # ecran 
+optiuni # {mic * mediu * mare}
+[/intrebare].
+
+[intrebare]
+text # 'locatie ( acasa, calatorii)  '
+atributul_intrebarii # locatie 
+optiuni # {acasa * calatorii}
+[/intrebare].
+
+[intrebare]
+text # 'tableta ( da , nu )'
+atributul_intrebarii # tableta 
+optiuni # {da * nu}
+[/intrebare].

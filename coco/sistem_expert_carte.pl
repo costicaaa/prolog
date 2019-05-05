@@ -4,6 +4,10 @@ BALCAN Maria Florina, HRISTEA Florentina,
 Aspecte ale Cautarii si Reprezentarii Cunostintelor in Inteligenta Artificiala,
 Editura Universitatii din Bucuresti, 2004, 
 pg 216
+
+
+:- use_module(library(file_systems),[]),file_systems:current_directory(_,'C:/stuff/fac/prolog/project/coco').
+
 */
 
 close_all:-current_stream(_,_,S),close(S),fail;true.
