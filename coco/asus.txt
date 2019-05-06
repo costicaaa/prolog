@@ -1,0 +1,193 @@
+[scop]laptop[/scop].
+
+
+[regula]
+nr:6
+premise_regula: 
+    mod_principal_utilizare # (office)
+	nivel_utilizator # (mediu)
+    vrea_sistem_operare
+implicatie_regula:
+	sistem_operare  # (windows) | fc # (100)
+[/regula].
+
+
+[regula]
+nr:46
+premise_regula: 
+	locatie # (calatorii)
+    probleme_sanatate # not
+implicatie_regula:
+	greutate # (medie) | fc # (100)
+[/regula].
+
+
+[regula]
+nr:16
+premise_regula: 
+    ecran # (mediu)
+	greutate # (medie)
+implicatie_regula:
+	dimensiune # (medie) | fc # (100)
+[/regula].
+
+
+[regula]
+nr:17
+premise_regula: 
+	mod_principal_utilizare # (office)
+    jocuri # not
+implicatie_regula:
+	placa_video # not | fc # (100)
+[/regula].
+
+[regula]
+nr:20
+premise_regula: 
+	fire_rabdatoare # not
+    mod_principal_utilizare # (office)
+implicatie_regula:
+	tip_storage # (ssd) | fc # (100)
+[/regula].
+
+[regula]
+nr:27
+premise_regula:
+    mod_principal_utilizare # (office)
+    nivel_utilizator # (mediu)
+	fire_rabdatoare # not
+implicatie_regula:
+	ram # (mediu) | fc # (100)
+[/regula].
+
+[regula]
+nr:38 
+premise_regula: 
+	buget # (mediu)
+    folosire_fara_priza # (rar)
+    sistem_operare # (windows)
+    dimensiune # (medie)
+    placa_video # not
+    tip_storage # (ssd)
+    ram # (mediu)
+implicatie_regula:
+    laptop # (asus_ultrabook_rar) | fc # (90)
+[/regula].
+
+[regula]
+nr:38 
+premise_regula: 
+	buget # (mediu)
+    folosire_fara_priza # (uneori)
+    sistem_operare # (windows)
+    dimensiune # (medie)
+    placa_video # not
+    tip_storage # (ssd)
+    ram # (mediu)
+implicatie_regula:
+    laptop # (asus_ultrabook_uneori) | fc # (100)
+[/regula].
+
+
+[regula]
+nr:38 
+premise_regula: 
+	buget # (mediu)
+    folosire_fara_priza # (rar)
+    sistem_operare # (windows)
+    dimensiune # (medie)
+    placa_video # not
+    tip_storage # (ssd)
+    ram # (mediu)
+implicatie_regula:
+    laptop # (aaalt_laptop_rar) | fc # (100)
+[/regula].
+
+
+
+[intrebare]
+text # 'Doriti ca laptop-ul pe care il achizitionati sa fie si tableta?'
+atributul_intrebarii # tableta 
+optiuni # {da * nu}
+[/intrebare].
+
+[intrebare]
+text # 'Care este bugetul pe care sunteti dispus sa il alocati?'
+atributul_intrebarii # buget
+optiuni # {mic * mediu * mare}
+[/intrebare].
+
+[intrebare]
+text # 'Veti avea acces la prize pentru a alimenta laptopul:'
+atributul_intrebarii # folosire_fara_priza
+optiuni # {rar * uneori * in_principal}
+[/intrebare].
+
+
+[intrebare]
+text # 'Achizitionati laptopul pentru: gaming, office, editare foto-video, multimedia'
+atributul_intrebarii # mod_principal_utilizare
+optiuni # {gaming * artist * office * multimedia}
+[/intrebare].
+
+
+[intrebare]
+text # 'Nivelul dumneavoastra de experienta este : '
+atributul_intrebarii # nivel_utilizator
+optiuni # {incepator * mediu * avansat }
+[/intrebare].
+
+[intrebare]
+text # 'Doriti ca laptopul sa aiba sistem de operare inclus ?'
+atributul_intrebarii # vrea_sistem_operare
+optiuni # {da * nu}
+[/intrebare].
+
+[intrebare]
+text # 'Ce ecran doriti ?'
+atributul_intrebarii # ecran 
+optiuni # {mic * mediu * mare}
+[/intrebare].
+
+[intrebare]
+text # 'Aveti probleme de sanatate care va impedica sa carati greutati mari?'
+atributul_intrebarii # probleme_sanatate
+optiuni # {da * nu}
+[/intrebare].
+
+[intrebare]
+text # 'Veti folosi laptopul in principal acasa sau pe drum?'
+atributul_intrebarii # locatie 
+optiuni # {acasa * calatorii}
+[/intrebare].
+
+
+[intrebare]
+text # 'Doriti sa va puteti juca ultimele noutati ? '
+atributul_intrebarii # jocuri
+optiuni # {da * nu}
+[/intrebare].
+
+
+
+[intrebare]
+text # 'Sunteti o persoana rabdatoare, in general?'
+atributul_intrebarii # fire_rabdatoare
+optiuni # {da * nu}
+[/intrebare].
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
