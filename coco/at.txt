@@ -2,7 +2,7 @@
 
 
 [regula]
-nr:1
+nr:2
 premise_regula: 
     mod_principal_utilizare # (office)
 	nivel_utilizator # (mediu)
@@ -15,16 +15,6 @@ implicatie_regula:
 [regula]
 nr:2
 premise_regula: 
-	locatie # (calatorii)
-    probleme_sanatate # not
-implicatie_regula:
-	greutate # (medie) | fc # (100)
-[/regula].
-
-
-[regula]
-nr:3
-premise_regula: 
     ecran # (mediu)
 	greutate # (medie)
 implicatie_regula:
@@ -33,7 +23,7 @@ implicatie_regula:
 
 
 [regula]
-nr:4
+nr:2
 premise_regula: 
 	mod_principal_utilizare # (office)
     jocuri # not
@@ -41,17 +31,10 @@ implicatie_regula:
 	placa_video # not | fc # (100)
 [/regula].
 
-[regula]
-nr:5
-premise_regula: 
-	fire_rabdatoare # not
-    mod_principal_utilizare # (office)
-implicatie_regula:
-	tip_storage # (ssd) | fc # (100)
-[/regula].
+
 
 [regula]
-nr:6
+nr:2
 premise_regula:
     mod_principal_utilizare # (office)
     nivel_utilizator # (mediu)
@@ -61,7 +44,7 @@ implicatie_regula:
 [/regula].
 
 [regula]
-nr:7 
+nr:2
 premise_regula: 
 	buget # (mediu)
     folosire_fara_priza # (rar)
@@ -75,7 +58,7 @@ implicatie_regula:
 [/regula].
 
 [regula]
-nr:8 
+nr:2 
 premise_regula: 
 	buget # (mediu)
     folosire_fara_priza # (uneori)
@@ -90,7 +73,7 @@ implicatie_regula:
 
 
 [regula]
-nr:9 
+nr:2 
 premise_regula: 
 	buget # (mediu)
     folosire_fara_priza # (rar)
@@ -102,6 +85,122 @@ premise_regula:
 implicatie_regula:
     laptop # (aaalt_laptop_rar) | fc # (100)
 [/regula].
+
+[regula]
+nr:2
+premise_regula: 
+    hibrid
+implicatie_regula:
+	tableta | fc # (100)
+[/regula]. 
+
+
+
+
+[regula]
+nr:2
+premise_regula: 
+    mod_principal_utilizare # (multimedia)
+	nivel_utilizator # (mediu)
+    vrea_sistem_operare
+implicatie_regula:
+	sistem_operare  # (windows) | fc # (55)
+[/regula].
+
+
+[regula]
+nr:2
+premise_regula: 
+	locatie # (calatorii)
+    probleme_sanatate
+implicatie_regula:
+	greutate # (mica) | fc # (63)
+[/regula].
+
+[regula]
+nr:2
+premise_regula: 
+	locatie # (calatorii)
+    probleme_sanatate # not
+implicatie_regula:
+	greutate # (medie) | fc # (55)
+[/regula].
+
+
+
+[regula]
+nr:2
+premise_regula: 
+    ecran # (mic)
+	greutate # (mica)
+implicatie_regula:
+	dimensiune # (mica) | fc # (70)
+[/regula].
+
+[regula]
+nr:2
+premise_regula: 
+    ecran # (mediu)
+	greutate # (medie)
+implicatie_regula:
+	dimensiune # (medie) | fc # (70)
+[/regula].
+
+
+[regula]
+nr:2
+premise_regula: 
+	fire_rabdatoare # not
+    mod_principal_utilizare # (office)
+implicatie_regula:
+	tip_storage # (ssd) | fc # (100)
+[/regula].
+
+[regula]
+nr:2
+premise_regula:
+    mod_principal_utilizare # (multimedia)
+    nivel_utilizator # (incepator)
+	fire_rabdatoare
+implicatie_regula:
+	ram # (mic) | fc # (60)
+[/regula].
+
+[regula]
+nr:2
+premise_regula:
+    mod_principal_utilizare # (multimedia)
+    nivel_utilizator # (mediu)
+	fire_rabdatoare 
+implicatie_regula:
+	ram # (mediu) | fc # (70)
+[/regula].
+
+[regula]
+nr:2
+premise_regula:
+    tableta
+	buget # (mic)
+    sistem_operare # (windows)
+    dimensiune # (mica)
+    ram # (mic)
+implicatie_regula:
+    laptop # (asus_2_in_1) | fc # (90)
+[/regula].
+
+[regula]
+nr:2
+premise_regula:
+    tableta
+	buget # (mediu)
+    sistem_operare # (windows)
+    dimensiune # (medie)
+    ram # (mediu)
+implicatie_regula:
+    laptop # (dell_2_in_1) | fc # (90)
+[/regula].
+
+
 
 
 
