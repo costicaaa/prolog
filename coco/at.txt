@@ -54,37 +54,13 @@ premise_regula:
     tip_storage # (ssd)
     ram # (mediu)
 implicatie_regula:
-    laptop # (asus_ultrabook_rar) | fc # (90)
-[/regula].
-
-[regula]
-nr:2 
-premise_regula: 
-	buget # (mediu)
-    folosire_fara_priza # (uneori)
-    sistem_operare # (windows)
-    dimensiune # (medie)
-    placa_video # not
-    tip_storage # (ssd)
-    ram # (mediu)
-implicatie_regula:
-    laptop # (asus_ultrabook_uneori) | fc # (100)
+    laptop # (asus_ultrabook) | fc # (90)
 [/regula].
 
 
-[regula]
-nr:2 
-premise_regula: 
-	buget # (mediu)
-    folosire_fara_priza # (rar)
-    sistem_operare # (windows)
-    dimensiune # (medie)
-    placa_video # not
-    tip_storage # (ssd)
-    ram # (mediu)
-implicatie_regula:
-    laptop # (aaalt_laptop_rar) | fc # (100)
-[/regula].
+
+
+
 
 [regula]
 nr:2
