@@ -1,0 +1,218 @@
+[scop]laptop[/scop].
+
+
+[regula]
+nr:1
+premise_regula: 
+    mod_principal_utilizare # (gaming)
+	nivel_utilizator # (avansat)
+    vrea_sistem_operare # not
+implicatie_regula:
+	sistem_operare  # (fara_sistem_operare) | fc # (100)
+[/regula].
+
+[regula]
+nr:1
+premise_regula: 
+    mod_principal_utilizare # (gaming)
+	nivel_utilizator # (avansat)
+    vrea_sistem_operare
+implicatie_regula:
+	sistem_operare  # (windows) | fc # (90)
+[/regula].
+
+
+[regula]
+nr:2
+premise_regula: 
+	locatie # (acasa)
+    probleme_sanatate # not
+implicatie_regula:
+	greutate # (mare) | fc # (90)
+[/regula].
+
+
+[regula]
+nr:3
+premise_regula: 
+    ecran # (mare)
+	greutate # (mare)
+implicatie_regula:
+	dimensiune # (mare) | fc # (100)
+[/regula].
+
+
+[regula]
+nr:4
+premise_regula: 
+	mod_principal_utilizare # (gaming)
+implicatie_regula:
+	placa_video | fc # (100)
+[/regula].
+
+
+
+[regula]
+nr:5
+premise_regula: 
+	fire_rabdatoare
+    mod_principal_utilizare # (gaming)
+implicatie_regula:
+	tip_storage # (hdd) | fc # (90)
+[/regula].
+
+[regula]
+nr:5
+premise_regula: 
+	fire_rabdatoare # not
+    mod_principal_utilizare # (gaming)
+implicatie_regula:
+	tip_storage # (ssd) | fc # (90)
+[/regula].
+
+[regula]
+nr:6
+premise_regula:
+    mod_principal_utilizare # (gaming)
+    nivel_utilizator # (avansat)
+	fire_rabdatoare
+implicatie_regula:
+	ram # (mediu) | fc # (80)
+[/regula].
+
+[regula]
+nr:6
+premise_regula:
+    mod_principal_utilizare # (gaming)
+    nivel_utilizator # (avansat)
+	fire_rabdatoare # not
+implicatie_regula:
+	ram # (mult) | fc # (100)
+[/regula].
+
+
+[regula]
+nr:9 
+premise_regula: 
+	buget # (mare)
+implicatie_regula:
+    laptop # (alienware) | fc # (100)
+[/regula].
+
+
+[regula]
+nr:9 
+premise_regula: 
+	buget # (mediu)
+    folosire_fara_priza # (rar)
+    sistem_operare # (windows)
+    dimensiune # (mare)
+    placa_video
+    tip_storage # (ssd)
+    ram # (mult)
+implicatie_regula:
+    laptop # (alienware) | fc # (50)
+[/regula].
+
+[regula]
+nr:9 
+premise_regula: 
+	buget # (mediu)
+    folosire_fara_priza # (rar)
+    sistem_operare # (fara_sistem_operare)
+    dimensiune # (mare)
+    placa_video
+    tip_storage # (hdd)
+    ram # (mediu)
+implicatie_regula:
+    laptop # (gaming_asus) | fc # (50)
+[/regula].
+
+
+
+[intrebare]
+text # 'Doriti ca laptop-ul pe care il achizitionati sa fie si tableta?'
+atributul_intrebarii # tableta 
+optiuni # {da * nu}
+[/intrebare].
+
+[intrebare]
+text # 'Care este bugetul pe care sunteti dispus sa il alocati?'
+atributul_intrebarii # buget
+optiuni # {mic * mediu * mare}
+[/intrebare].
+
+[intrebare]
+text # 'Veti avea acces la prize pentru a alimenta laptopul:'
+atributul_intrebarii # folosire_fara_priza
+optiuni # {rar * uneori * in_principal}
+[/intrebare].
+
+
+[intrebare]
+text # 'Achizitionati laptopul pentru: gaming, office, editare foto-video, multimedia'
+atributul_intrebarii # mod_principal_utilizare
+optiuni # {gaming * artist * office * multimedia}
+[/intrebare].
+
+
+[intrebare]
+text # 'Nivelul dumneavoastra de experienta este : '
+atributul_intrebarii # nivel_utilizator
+optiuni # {incepator * mediu * avansat }
+[/intrebare].
+
+[intrebare]
+text # 'Doriti ca laptopul sa aiba sistem de operare inclus ?'
+atributul_intrebarii # vrea_sistem_operare
+optiuni # {da * nu}
+[/intrebare].
+
+[intrebare]
+text # 'Ce ecran doriti ?'
+atributul_intrebarii # ecran 
+optiuni # {mic * mediu * mare}
+[/intrebare].
+
+[intrebare]
+text # 'Aveti probleme de sanatate care va impedica sa carati greutati mari?'
+atributul_intrebarii # probleme_sanatate
+optiuni # {da * nu}
+[/intrebare].
+
+[intrebare]
+text # 'Veti folosi laptopul in principal acasa sau pe drum?'
+atributul_intrebarii # locatie 
+optiuni # {acasa * calatorii}
+[/intrebare].
+
+
+[intrebare]
+text # 'Doriti sa va puteti juca ultimele noutati ? '
+atributul_intrebarii # jocuri
+optiuni # {da * nu}
+[/intrebare].
+
+
+
+[intrebare]
+text # 'Sunteti o persoana rabdatoare, in general?'
+atributul_intrebarii # fire_rabdatoare
+optiuni # {da * nu}
+[/intrebare].
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
