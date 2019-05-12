@@ -1,0 +1,915 @@
+[scop]laptop[/scop].
+
+[regula]
+nr:1
+premise_regula: 
+    mod_principal_utilizare # (office)
+	nivel_utilizator # (mediu)
+    vrea_sistem_operare
+implicatie_regula:
+	sistem_operare  # (windows) | fc # (99)
+[/regula].
+
+[regula]
+nr:2
+premise_regula: 
+    mod_principal_utilizare # (multimedia)
+	nivel_utilizator # (incepator)
+    vrea_sistem_operare
+implicatie_regula:
+	sistem_operare  # (windows) | fc # (99)
+[/regula].
+
+[regula]
+nr:3
+premise_regula: 
+    mod_principal_utilizare # (multimedia)
+	nivel_utilizator # (incepator)
+implicatie_regula:
+	sistem_operare  # (windows) | fc # (80)
+[/regula].
+
+[regula]
+nr:4
+premise_regula: 
+    mod_principal_utilizare # (office)
+	nivel_utilizator # (mediu)
+implicatie_regula:
+	sistem_operare  # (windows) | fc # (90)
+[/regula].
+
+
+[regula]
+nr:5
+premise_regula: 
+    mod_principal_utilizare # (gaming)
+	nivel_utilizator # (avansat)
+    vrea_sistem_operare # not
+implicatie_regula:
+	sistem_operare  # (fara_sistem_operare) | fc # (99)
+[/regula].
+
+[regula]
+nr:6
+premise_regula: 
+    mod_principal_utilizare # (gaming)
+	nivel_utilizator # (avansat)
+    vrea_sistem_operare
+implicatie_regula:
+	sistem_operare  # (windows) | fc # (90)
+[/regula].
+
+[regula]
+nr:7
+premise_regula: 
+    mod_principal_utilizare # (artist)
+	nivel_utilizator # (incepator)
+    vrea_sistem_operare
+	jocuri # not
+implicatie_regula:
+	sistem_operare  # (macos) | fc # (90)
+[/regula].
+
+[regula]
+nr:8
+premise_regula: 
+    mod_principal_utilizare # (artist)
+	nivel_utilizator # (incepator)
+    vrea_sistem_operare
+	jocuri
+implicatie_regula:
+	sistem_operare  # (macos) | fc # (80)
+[/regula].
+
+[regula]
+nr:9
+premise_regula: 
+    mod_principal_utilizare # (artist)
+    vrea_sistem_operare
+	jocuri # not
+implicatie_regula:
+	sistem_operare  # (macos) | fc # (75)
+[/regula].
+
+[regula]
+nr:10
+premise_regula: 
+    mod_principal_utilizare # (artist)
+	jocuri # not
+implicatie_regula:
+	sistem_operare  # (macos) | fc # (72)
+[/regula].
+
+
+[regula]
+nr:11
+premise_regula: 
+    mod_principal_utilizare # (artist)
+implicatie_regula:
+	sistem_operare  # (macos) | fc # (70)
+[/regula].
+
+
+[regula]
+nr:12
+premise_regula: 
+    vrea_sistem_operare # not
+implicatie_regula:
+	sistem_operare  # (fara_sistem_operare) | fc # (99)
+[/regula].
+
+[regula]
+nr:13
+premise_regula: 
+    vrea_sistem_operare # not
+implicatie_regula:
+	sistem_operare  # (windows) | fc # (60)
+[/regula].
+
+[regula]
+nr:14
+premise_regula: 
+    vrea_sistem_operare # not
+implicatie_regula:
+	sistem_operare  # (macos) | fc # (60)
+[/regula].
+
+[regula]
+nr:15
+premise_regula: 
+    vrea_sistem_operare
+implicatie_regula:
+	sistem_operare  # (fara_sistem_operare) | fc # (50)
+[/regula].
+
+
+
+
+
+
+
+[regula]
+nr:16
+premise_regula: 
+	locatie # (calatorii)
+    probleme_sanatate # not
+implicatie_regula:
+	greutate # (mica) | fc # (90)
+[/regula].
+
+[regula]
+nr:17
+premise_regula: 
+	locatie # (calatorii)
+    probleme_sanatate # not
+implicatie_regula:
+	greutate # (medie) | fc # (85)
+[/regula].
+
+[regula]
+nr:18
+premise_regula: 
+	locatie # (calatorii)
+    probleme_sanatate # not
+implicatie_regula:
+	greutate # (mare) | fc # (60)
+[/regula].
+
+[regula]
+nr:19
+premise_regula: 
+	locatie # (calatorii)
+    probleme_sanatate
+implicatie_regula:
+	greutate # (mica) | fc # (99)
+[/regula].
+
+[regula]
+nr:20
+premise_regula: 
+	locatie # (calatorii)
+    probleme_sanatate
+implicatie_regula:
+	greutate # (medie) | fc # (75)
+[/regula].
+
+[regula]
+nr:21
+premise_regula: 
+	locatie # (acasa)
+    probleme_sanatate # not
+implicatie_regula:
+	greutate # (mica) | fc # (90)
+[/regula].
+
+[regula]
+nr:22
+premise_regula: 
+	locatie # (acasa)
+    probleme_sanatate # not
+implicatie_regula:
+	greutate # (medie) | fc # (85)
+[/regula].
+
+[regula]
+nr:23
+premise_regula: 
+	locatie # (acasa)
+    probleme_sanatate # not
+implicatie_regula:
+	greutate # (mare) | fc # (80)
+[/regula].
+
+[regula]
+nr:24
+premise_regula: 
+	locatie # (acasa)
+    probleme_sanatate
+implicatie_regula:
+	greutate # (mica) | fc # (99)
+[/regula].
+
+[regula]
+nr:25
+premise_regula: 
+	locatie # (acasa)
+    probleme_sanatate
+implicatie_regula:
+	greutate # (medie) | fc # (90)
+[/regula].
+
+[regula]
+nr:26
+premise_regula: 
+	locatie # (acasa)
+    probleme_sanatate
+implicatie_regula:
+	greutate # (mare) | fc # (85)
+[/regula].
+
+
+
+
+
+[regula]
+nr:27
+premise_regula: 
+    ecran # (mediu)
+	greutate # (medie)
+implicatie_regula:
+	dimensiune # (medie) | fc # (99)
+[/regula].
+
+[regula]
+nr:28
+premise_regula: 
+    ecran # (mare)
+	greutate # (mare)
+implicatie_regula:
+	dimensiune # (mare) | fc # (99)
+[/regula].
+
+[regula]
+nr:29
+premise_regula: 
+    ecran # (mic)
+	greutate # (mica)
+implicatie_regula:
+	dimensiune # (mica) | fc # (99)
+[/regula].
+
+[regula]
+nr:30
+premise_regula: 
+    ecran # (mediu)
+	greutate # (mare)
+implicatie_regula:
+	dimensiune # (medie) | fc # (80)
+[/regula].
+
+[regula]
+nr:31
+premise_regula: 
+    ecran # (mare)
+	greutate # (medie)
+implicatie_regula:
+	dimensiune # (medie) | fc # (85)
+[/regula].
+
+[regula]
+nr:32
+premise_regula: 
+    ecran # (mic)
+	greutate # (medie)
+implicatie_regula:
+	dimensiune # (medie) | fc # (70)
+[/regula].
+
+
+
+[regula]
+nr:33
+premise_regula: 
+	mod_principal_utilizare # (office)
+    jocuri # not
+implicatie_regula:
+	placa_video # not | fc # (99)
+[/regula].
+
+[regula]
+nr:34
+premise_regula: 
+	mod_principal_utilizare # (gaming)
+implicatie_regula:
+	placa_video | fc # (100)
+[/regula].
+
+[regula]
+nr:35
+premise_regula: 
+	jocuri
+implicatie_regula:
+	placa_video | fc # (100)
+[/regula].
+
+[regula]
+nr:36
+premise_regula: 
+	mod_principal_utilizare # (85)
+    jocuri
+implicatie_regula:
+	placa_video | fc # (90)
+[/regula].
+
+[regula]
+nr:37
+premise_regula: 
+	mod_principal_utilizare # (artist)
+	jocuri # not 
+implicatie_regula:
+	placa_video # not | fc # (99)
+[/regula].
+
+[regula]
+nr:38
+premise_regula: 
+	mod_principal_utilizare # (artist)
+    jocuri
+implicatie_regula:
+	placa_video | fc # (85)
+[/regula].
+
+[regula]
+nr:39
+premise_regula: 
+	mod_principal_utilizare # (office)
+    jocuri
+implicatie_regula:
+	placa_video | fc # (80)
+[/regula].
+
+[regula]
+nr:40
+premise_regula: 
+    jocuri # not
+implicatie_regula:
+	placa_video # not | fc # (85)
+[/regula].
+
+
+
+
+[regula]
+nr:41
+premise_regula: 
+	fire_rabdatoare # not
+    mod_principal_utilizare # (office)
+implicatie_regula:
+	tip_storage # (ssd) | fc # (99)
+[/regula].
+
+
+[regula]
+nr:42
+premise_regula: 
+	fire_rabdatoare
+    mod_principal_utilizare # (multimedia)
+    nivel_utilizator # (incepator)
+implicatie_regula:
+	tip_storage # (hdd) | fc # (90)
+[/regula].
+
+[regula]
+nr:43
+premise_regula: 
+	fire_rabdatoare
+    mod_principal_utilizare # (multimedia)
+    nivel_utilizator # (mediu)
+implicatie_regula:
+	tip_storage # (hdd) | fc # (80)
+[/regula].
+
+[regula]
+nr:44
+premise_regula: 
+	fire_rabdatoare
+    mod_principal_utilizare # (multimedia)
+implicatie_regula:
+	tip_storage # (hdd) | fc # (70)
+[/regula].
+
+[regula]
+nr:45
+premise_regula: 
+	fire_rabdatoare
+    mod_principal_utilizare # (gaming)
+implicatie_regula:
+	tip_storage # (hdd) | fc # (75)
+[/regula].
+
+[regula]
+nr:46
+premise_regula: 
+	fire_rabdatoare
+    mod_principal_utilizare # (gaming)
+implicatie_regula:
+	tip_storage # (ssd) | fc # (85)
+[/regula].
+
+[regula]
+nr:47
+premise_regula: 
+	fire_rabdatoare # not
+    mod_principal_utilizare # (artist)
+implicatie_regula:
+	tip_storage # (ssd) | fc # (90)
+[/regula].
+
+
+
+[regula]
+nr:48
+premise_regula:
+    mod_principal_utilizare # (office)
+    nivel_utilizator # (mediu)
+	fire_rabdatoare # not
+implicatie_regula:
+	ram # (mediu) | fc # (99)
+[/regula].
+
+[regula]
+nr:49
+premise_regula:
+    mod_principal_utilizare # (multimedia)
+    nivel_utilizator # (incepator)
+	fire_rabdatoare
+implicatie_regula:
+	ram # (mediu) | fc # (80)
+[/regula].
+
+[regula]
+nr:50
+premise_regula:
+    mod_principal_utilizare # (multimedia)
+    nivel_utilizator # (mediu)
+	fire_rabdatoare
+implicatie_regula:
+	ram # (mediu) | fc # (70)
+[/regula].
+
+[regula]
+nr:51
+premise_regula:
+    mod_principal_utilizare # (gaming)
+    nivel_utilizator # (avansat)
+	fire_rabdatoare
+implicatie_regula:
+	ram # (mediu) | fc # (80)
+[/regula].
+
+[regula]
+nr:52
+premise_regula:
+    mod_principal_utilizare # (gaming)
+    nivel_utilizator # (avansat)
+	fire_rabdatoare # not
+implicatie_regula:
+	ram # (mult) | fc # (99)
+[/regula].
+
+[regula]
+nr:53
+premise_regula:
+    mod_principal_utilizare # (gaming)
+    nivel_utilizator # (avansat)
+	fire_rabdatoare # not
+implicatie_regula:
+	ram # (mediu) | fc # (80)
+[/regula].
+
+[regula]
+nr:54
+premise_regula:
+    mod_principal_utilizare # (gaming)
+	fire_rabdatoare # not
+implicatie_regula:
+	ram # (mediu) | fc # (85)
+[/regula].
+
+[regula]
+nr:55
+premise_regula:
+    mod_principal_utilizare # (gaming)
+	fire_rabdatoare # not
+implicatie_regula:
+	ram # (mediu) | fc # (75)
+[/regula].
+
+[regula]
+nr:56
+premise_regula:
+    mod_principal_utilizare # (artist)
+    nivel_utilizator # (incepator)
+	fire_rabdatoare # not
+implicatie_regula:
+	ram # (mediu) | fc # (100)
+[/regula].
+
+
+
+
+
+
+
+[regula]
+nr:57
+premise_regula:
+    tableta
+	buget # (mic)
+    sistem_operare # (windows)
+    dimensiune # (mica)
+    ram # (putin)
+implicatie_regula:
+    laptop # (asus_2_in_1) | fc # (90)
+[/regula].
+
+[regula]
+nr:58
+premise_regula:
+    tableta
+	buget # (mediu)
+    sistem_operare # (windows)
+    dimensiune # (medie)
+    placa_video # not
+    ram # (mediu)
+implicatie_regula:
+    laptop # (dell_2_in_1) | fc # (90)
+[/regula].
+
+
+[regula]
+nr:59
+premise_regula:
+	buget # (mic)
+    sistem_operare # (windows)
+    dimensiune # (mica)
+    ram # (putin)
+implicatie_regula:
+    laptop # (asus_2_in_1) | fc # (70)
+[/regula].
+
+[regula]
+nr:60
+premise_regula:
+	buget # (mediu)
+    sistem_operare # (windows)
+    dimensiune # (medie)
+    placa_video # not
+    ram # (mediu)
+implicatie_regula:
+    laptop # (dell_2_in_1) | fc # (70)
+[/regula].
+
+
+[regula]
+nr:61
+premise_regula: 
+	buget # (mediu)
+    folosire_fara_priza # (rar)
+    sistem_operare # (windows)
+    dimensiune # (medie)
+    placa_video
+    tip_storage # (hdd)
+    ram # (mediu)
+implicatie_regula:
+    laptop # (hp_pavilion) | fc # (99)
+[/regula].
+
+[regula]
+nr:62
+premise_regula: 
+	buget # (mediu)
+    folosire_fara_priza # (rar)
+    sistem_operare # (windows)
+    dimensiune # (medie)
+    placa_video # not
+    tip_storage # (hdd)
+    ram # (mediu)
+implicatie_regula:
+    laptop # (hp_pavilion) | fc # (90)
+[/regula].
+
+[regula]
+nr:61
+premise_regula: 
+	buget # (mediu)
+    placa_video
+implicatie_regula:
+    laptop # (hp_pavilion) | fc # (50)
+[/regula].
+
+
+[regula]
+nr:63
+premise_regula: 
+	buget # (mediu)
+    folosire_fara_priza # (rar)
+    dimensiune # (medie)
+    placa_video
+    tip_storage # (hdd)
+    ram # (mediu)
+implicatie_regula:
+    laptop # (hp_pavilion) | fc # (80)
+[/regula].
+
+
+[regula]
+nr:64 
+premise_regula: 
+	buget # (mediu)
+    sistem_operare # (windows)
+    dimensiune # (medie)
+    placa_video # not
+    tip_storage # (ssd)
+    ram # (mediu)
+implicatie_regula:
+    laptop # (asus_ultrabook) | fc # (90)
+[/regula].
+
+[regula]
+nr:65
+premise_regula: 
+	buget # (mediu)
+    dimensiune # (medie)
+    placa_video # not
+    tip_storage # (ssd)
+    ram # (mediu)
+implicatie_regula:
+    laptop # (asus_ultrabook) | fc # (80)
+[/regula].
+
+[regula]
+nr:65
+premise_regula: 
+	buget # (mediu)
+    dimensiune # (medie)
+    placa_video # not
+implicatie_regula:
+    laptop # (asus_ultrabook) | fc # (50)
+[/regula].
+
+[regula]
+nr:66 
+premise_regula: 
+	buget # (mic)
+    sistem_operare # (windows)
+    dimensiune # (medie)
+    placa_video # not
+    tip_storage # (ssd)
+    ram # (mediu)
+implicatie_regula:
+    laptop # (asus_ultrabook) | fc # (70)
+[/regula].
+
+[regula]
+nr:67
+premise_regula: 
+	buget # (mediu)
+    folosire_fara_priza # (rar)
+    sistem_operare # (windows)
+    dimensiune # (medie)
+    tip_storage # (hdd)
+    ram # (putin)
+implicatie_regula:
+    laptop # (hp_probook) | fc # (99)
+[/regula].
+
+[regula]
+nr:68 
+premise_regula: 
+	buget # (mediu)
+    folosire_fara_priza # (rar)
+    sistem_operare # (fara_sistem_operare)
+    dimensiune # (medie)
+    tip_storage # (hdd)
+    ram # (putin)
+implicatie_regula:
+    laptop # (lenovo_multimedia) | fc # (99)
+[/regula].
+
+[regula]
+nr:69
+premise_regula: 
+	buget # (mediu)
+    folosire_fara_priza # (rar)
+    sistem_operare # (macos)
+    dimensiune # (medie)
+    placa_video # not
+    tip_storage # (ssd)
+    ram # (mediu)
+implicatie_regula:
+    laptop # (macbook) | fc # (100)
+[/regula].
+
+[regula]
+nr:70
+premise_regula: 
+	buget # (mediu)
+    folosire_fara_priza # (rar)
+    sistem_operare # (windows)
+    dimensiune # (mare)
+    placa_video
+    tip_storage # (ssd)
+    ram # (mult)
+implicatie_regula:
+    laptop # (alienware) | fc # (50)
+[/regula].
+
+[regula]
+nr:71
+premise_regula: 
+	buget # (mediu)
+    folosire_fara_priza # (rar)
+    sistem_operare # (fara_sistem_operare)
+    dimensiune # (mare)
+    placa_video
+    tip_storage # (hdd)
+    ram # (mediu)
+implicatie_regula:
+    laptop # (gaming_asus) | fc # (90)
+[/regula].
+
+[regula]
+nr:71
+premise_regula: 
+	buget # (mediu)
+    folosire_fara_priza # (rar)
+    sistem_operare # (fara_sistem_operare)
+    dimensiune # (medie)
+    placa_video
+    tip_storage # (hdd)
+    ram # (mediu)
+implicatie_regula:
+    laptop # (gaming_asus) | fc # (70)
+[/regula].
+
+[regula]
+nr:71
+premise_regula: 
+	buget # (mediu)
+    folosire_fara_priza # (rar)
+    dimensiune # (medie)
+    placa_video
+    tip_storage # (hdd)
+    ram # (mediu)
+implicatie_regula:
+    laptop # (gaming_asus) | fc # (65)
+[/regula].
+
+[regula]
+nr:71
+premise_regula: 
+	buget # (mediu)
+    jocuri
+implicatie_regula:
+    laptop # (gaming_asus) | fc # (50)
+[/regula].
+
+[regula]
+nr:71
+premise_regula: 
+	buget # (mic)
+    jocuri
+implicatie_regula:
+    laptop # (gaming_asus) | fc # (40)
+[/regula].
+
+[regula]
+nr:72
+premise_regula: 
+    hibrid # not
+	buget # (mare)
+    probleme_sanatate # not
+implicatie_regula:
+    laptop # (alienware) | fc # (99)
+[/regula].
+
+[regula]
+nr:73
+premise_regula: 
+    hibrid # not
+	buget # (mare)
+implicatie_regula:
+    laptop # (alienware) | fc # (90)
+[/regula].
+
+
+
+
+
+[intrebare]
+text # 'Doriti ca laptop-ul pe care il achizitionati sa fie si tableta?'
+atributul_intrebarii # tableta 
+optiuni # {da * nu}
+[/intrebare].
+
+[intrebare]
+text # 'Care este bugetul pe care sunteti dispus sa il alocati?'
+atributul_intrebarii # buget
+optiuni # {mic * mediu * mare}
+[/intrebare].
+
+[intrebare]
+text # 'Veti avea acces la prize pentru a alimenta laptopul:'
+atributul_intrebarii # folosire_fara_priza
+optiuni # {rar * uneori * in_principal}
+[/intrebare].
+
+
+[intrebare]
+text # 'Achizitionati laptopul pentru: gaming, office, editare foto-video, multimedia'
+atributul_intrebarii # mod_principal_utilizare
+optiuni # {gaming * artist * office * multimedia}
+[/intrebare].
+
+
+[intrebare]
+text # 'Nivelul dumneavoastra de experienta este : '
+atributul_intrebarii # nivel_utilizator
+optiuni # {incepator * mediu * avansat }
+[/intrebare].
+
+[intrebare]
+text # 'Doriti ca laptopul sa aiba sistem de operare inclus ?'
+atributul_intrebarii # vrea_sistem_operare
+optiuni # {da * nu}
+[/intrebare].
+
+[intrebare]
+text # 'Ce ecran doriti ?'
+atributul_intrebarii # ecran 
+optiuni # {mic * mediu * mare}
+[/intrebare].
+
+[intrebare]
+text # 'Aveti probleme de sanatate care va impedica sa carati greutati mari?'
+atributul_intrebarii # probleme_sanatate
+optiuni # {da * nu}
+[/intrebare].
+
+[intrebare]
+text # 'Veti folosi laptopul in principal acasa sau pe drum?'
+atributul_intrebarii # locatie 
+optiuni # {acasa * calatorii}
+[/intrebare].
+
+
+[intrebare]
+text # 'Doriti sa va puteti juca ultimele noutati ? '
+atributul_intrebarii # jocuri
+optiuni # {da * nu}
+[/intrebare].
+
+
+
+[intrebare]
+text # 'Sunteti o persoana rabdatoare, in general?'
+atributul_intrebarii # fire_rabdatoare
+optiuni # {da * nu}
+[/intrebare].
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -51,7 +51,7 @@ premise_regula:
 	mod_principal_utilizare # (artist)
 	jocuri # not 
 implicatie_regula:
-	placa_video # not| fc # (100)
+	placa_video # not | fc # (100)
 [/regula].
 
 [regula]
@@ -95,7 +95,7 @@ premise_regula:
     tip_storage # (ssd)
     ram # (mediu)
 implicatie_regula:
-    laptop # (macos) | fc # (100)
+    laptop # (macbook) | fc # (100)
 [/regula].
 
 
