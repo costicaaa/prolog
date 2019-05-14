@@ -167,7 +167,8 @@ pornire :-
 		write('Fisierul dorit a fost incarcat'),nl.
 	
 		incarca :-
-			write('Introduceti numele fisierului care doriti sa fie incarcat: '),nl, write('|:'),read(F),
+			%write('Introduceti numele fisierului care doriti sa fie incarcat: '),nl, write('|:'),read(F),
+			F = 'all',
 			file_exists(F),!,incarca(F).
 
 		incarca:-write('Nume incorect de fisier! '),nl,fail.
@@ -291,7 +292,8 @@ pornire :-
 						
 						interogheaza(Atr,Mesaj,[da,nu],Istorie) :-
 							!,write(Mesaj),nl,
-							de_la_utiliz(X,Istorie,[da,nu]),
+							citeste_opt(X,[da,nu],Istorie),
+							% de_la_utiliz(X,Istorie,[da,nu]),
 							det_val_fc(X,Val,FC),
 							asserta( fapt(av(Atr,Val),FC,[utiliz]) ).
 							
@@ -419,9 +421,15 @@ pornire :-
 						
 					transformare(not av(A,da), [not,A]) :- !.
 						
-					transformare(av(A,nu),[not,A]) :- !.
+					% transformare(av(A,nu),[not,A]) :- !.
 						
 					transformare(av(A,V),[A,este,V]).
+
+				    transformare2(av(A,da),[A]) :- !.
+						
+					transformare2(not av(A,da), [A, '#', not]) :- !.
+						
+					transformare2(av(A,V),[A, '#', '(', V, ')']).
 
 		
 	executa([reinitiaza]) :- 
@@ -471,7 +479,7 @@ pornire :-
 			lista_float_int(Reguli,Reguli1),
 			FC > 20,
 			transformare(Scop,PG),
-			append(PG,[a,fost,derivat,cu,ajutorul,'regulilor: '|Reguli1],LL),
+			append( PG , [a,fost,derivat,cu,ajutorul,'regulilor: '|Reguli1] , LL),
 			scrie_lista(LL),nl,
 			afis_reguli(Reguli),fail.
 
@@ -491,21 +499,26 @@ pornire :-
 				afis_reguli(X).
 
 				afis_regula(N) :-
-					regula(N, premise(Lista_premise),
-					concluzie(Scop,FC)),NN is integer(N),
-					scrie_lista(['regula  ',NN]),
-					scrie_lista(['  Daca']),
+					regula(N, premise(Lista_premise), concluzie(Scop,FC)),
+					NN is integer(N),
+					scrie_lista(['[regula]']),
+					scrie_lista(['nr:', NN]),
+					scrie_lista(['premise_regula:']),
 					scrie_lista_premise(Lista_premise),
-					scrie_lista(['  Atunci']),
-					transformare(Scop,Scop_tr),
+					scrie_lista(['implicatie_regula:']),
+					transformare2(Scop,Scop_tr),
 					append(['   '],Scop_tr,L1),
-					FC1 is integer(FC),append(L1,[FC1],LL),
-					scrie_lista(LL),nl.
+					FC1 is integer(FC),
+					append(L1,['| fc # (', FC1, ')'], LL),
+					
+					scrie_lista(LL),
+					scrie_lista(['[/regula]']),
+					nl.
 
 					scrie_lista_premise([]).
 						
 					scrie_lista_premise([H|T]) :-
-						transformare(H,H_tr),
+						transformare2(H,H_tr),
 						space(5),scrie_lista(H_tr),
 						scrie_lista_premise(T).
 

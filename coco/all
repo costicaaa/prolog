@@ -123,7 +123,7 @@ nr:13
 premise_regula: 
     vrea_sistem_operare # not
 implicatie_regula:
-	sistem_operare  # (windows) | fc # (60)
+	sistem_operare  # (windwindows) | fc # (60)
 [/regula].
 
 [regula]
@@ -657,7 +657,7 @@ implicatie_regula:
 [/regula].
 
 [regula]
-nr:65
+nr:165
 premise_regula: 
 	buget # (mediu)
     dimensiune # (medie)
@@ -760,7 +760,7 @@ implicatie_regula:
 [/regula].
 
 [regula]
-nr:71
+nr:72
 premise_regula: 
 	buget # (mediu)
     folosire_fara_priza # (rar)
@@ -774,7 +774,7 @@ implicatie_regula:
 [/regula].
 
 [regula]
-nr:71
+nr:73
 premise_regula: 
 	buget # (mediu)
     folosire_fara_priza # (rar)
@@ -787,7 +787,7 @@ implicatie_regula:
 [/regula].
 
 [regula]
-nr:71
+nr:74
 premise_regula: 
 	buget # (mediu)
     jocuri
@@ -796,7 +796,7 @@ implicatie_regula:
 [/regula].
 
 [regula]
-nr:71
+nr:75
 premise_regula: 
 	buget # (mic)
     jocuri
@@ -805,7 +805,7 @@ implicatie_regula:
 [/regula].
 
 [regula]
-nr:72
+nr:76
 premise_regula: 
     hibrid # not
 	buget # (mare)
@@ -815,9 +815,9 @@ implicatie_regula:
 [/regula].
 
 [regula]
-nr:73
+nr:77
 premise_regula: 
-    hibrid # not
+    tableta # not
 	buget # (mare)
 implicatie_regula:
     laptop # (alienware) | fc # (90)
