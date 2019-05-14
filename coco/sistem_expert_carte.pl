@@ -403,10 +403,27 @@ pornire :-
 								FC is round(X).
 								
 								
+			ordoneaza_solutii(Atr) :-
+					setof((FC, X, Y), 
+					retract(fapt(av(Atr,X), FC, Y)),ListaFinala),
+					parc(ListaFinala,Atr).
+
+				parc([],Atr).
+				parc([(FC, X, Y)|T],Atr) :-
+					asserta(fapt(av(laptop,X), FC, Y)),
+					parc(T,Atr).	
+					
 			afiseaza_scop(Atr) :-
-				nl,fapt(av(Atr,Val),FC,_),
-				FC >= 20,scrie_scop(av(Atr,Val),FC),
-				nl,fail.
+				nl,
+				ordoneaza_solutii(Atr),
+				(
+					fapt(av(Atr,V),F,_) ->
+						fapt(av(Atr,Val),FC,_),
+						FC >= 20,						
+						scrie_scop(av(Atr,Val),FC),nl
+							;
+						write('Nu am gasit nici o solutie pentru raspunsurile date.')
+				),fail.
 
 			afiseaza_scop(_):-nl,nl.
 
