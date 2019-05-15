@@ -198,8 +198,16 @@ pornire :-
 					
 				proceseaza([end_of_file]):-!.
 					
-				proceseaza(L) :- trad(R,L,[]),assertz(R), !.
 
+
+				proceseaza(L) :- 
+					trad(R,L,[]),
+					(R = interogabil(Atr,M,P) -> 
+						append(M, [nu_stiu, nu_conteaza], NEWM),
+						assertz(interogabil(Atr,NEWM,P))
+					;
+						assertz(R)
+					),!.
 					% trad(scop(X)) --> [scopul,este,X].
 
 					trad(scop(X)) --> ['[',scop,']',X,'[','/',scop,']'].
@@ -296,26 +304,55 @@ pornire :-
 							% de_la_utiliz(X,Istorie,[da,nu]),
 							det_val_fc(X,Val,FC),
 							asserta( fapt(av(Atr,Val),FC,[utiliz]) ).
+
+						interogheaza(Atr,Mesaj,Optiuni,Istorie) :-
+							write(Mesaj),nl,
+							citeste_opt(VLista,Optiuni,Istorie),
+							append(ActualOptiuni, [nu_stiu, nu_conteaza], Optiuni),
+							assert_fapt(Atr,VLista,ActualOptiuni).
 							
-							de_la_utiliz(X,Istorie,Lista_opt) :-
-								repeat,write(': '),citeste_linie(X),
-								proceseaza_raspuns(X,Istorie,Lista_opt).
+							citeste_opt(X,Optiuni,Istorie) :-
+								append(['('],Optiuni,Opt1),
+								append(Opt1,[')'],Opt),
+								scrie_lista(Opt),
+								de_la_utiliz(X,Istorie,Optiuni).
 
-								proceseaza_raspuns([de_ce],Istorie,_) :- nl,afis_istorie(Istorie),!,fail.
-								 % CA EXEMPLU, NOI TREBUIE SA AVEM nu_stiu SI nu_conteaza
-									afis_istorie([]) :- nl.
+								de_la_utiliz(X,Istorie,Lista_opt) :-
+									repeat,write(': '),citeste_linie(X),
+									proceseaza_raspuns(X,Istorie,Lista_opt).
+
+									proceseaza_raspuns([de_ce],Istorie,_) :- nl,afis_istorie(Istorie),!,fail.
+									% CA EXEMPLU, NOI TREBUIE SA AVEM nu_stiu SI nu_conteaza
+										afis_istorie([]) :- nl.
+											
+										afis_istorie([scop(X)|T]) :-
+											scrie_lista([scop,X]),!, afis_istorie(T).
+
+										afis_istorie([N|T]) :-
+											afis_regula(N),!,afis_istorie(T).
 										
-									afis_istorie([scop(X)|T]) :-
-										scrie_lista([scop,X]),!, afis_istorie(T).
+									proceseaza_raspuns([X],_,Lista_opt):-
+										member(X,Lista_opt).
+										
+										% cici fc 33 aici 
+									proceseaza_raspuns([X,fc,FC],_,Lista_opt):-
+										member(X,Lista_opt),float(FC).
+								
+							assert_fapt(Atr,[Val,fc,FC],ActualOptiuni) :-
+								!,asserta( fapt(av(Atr,Val),FC,[utiliz]) ).
 
-									afis_istorie([N|T]) :-
-										afis_regula(N),!,afis_istorie(T).
-									
-								proceseaza_raspuns([X],_,Lista_opt):-
-									member(X,Lista_opt).
-									
-								proceseaza_raspuns([X,fc,FC],_,Lista_opt):-
-									member(X,Lista_opt),float(FC).
+							assert_fapt(Atr,[Val],ActualOptiuni) :-
+								(
+									Val = 'nu_conteaza' -> 
+									insert_all_optiuni(Atr, ActualOptiuni)
+									;	
+									asserta( fapt(av(Atr,Val),100,[utiliz]))
+								).
+							
+							insert_all_optiuni(Atr, []).
+							insert_all_optiuni(Atr, [H|T]):- 
+									asserta(fapt(av(Atr,H), 100, [utiliz])),
+									insert_all_optiuni(Atr, T).
 									
 							det_val_fc([nu],da,-100).
 								
@@ -330,22 +367,7 @@ pornire :-
 							det_val_fc([Val],Val,100).
 
 
-						interogheaza(Atr,Mesaj,Optiuni,Istorie) :-
-							write(Mesaj),nl,
-							citeste_opt(VLista,Optiuni,Istorie),
-							assert_fapt(Atr,VLista).
-							
-							citeste_opt(X,Optiuni,Istorie) :-
-								append(['('],Optiuni,Opt1),
-								append(Opt1,[')'],Opt),
-								scrie_lista(Opt),
-								de_la_utiliz(X,Istorie,Optiuni).
-								
-							assert_fapt(Atr,[Val,fc,FC]) :-
-								!,asserta( fapt(av(Atr,Val),FC,[utiliz]) ).
-
-							assert_fapt(Atr,[Val]) :-
-								asserta( fapt(av(Atr,Val),100,[utiliz])).
+						
 
 
 				realizare_scop(Scop,FC_curent,Istorie) :-

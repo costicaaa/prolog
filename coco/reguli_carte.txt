@@ -570,3 +570,7 @@ optiuni # {da * nu}
 [/intrebare].
 
 
+
+
+
+nu stiu -> ignora regulile care depind de  atribut

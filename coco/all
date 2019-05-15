@@ -123,7 +123,7 @@ nr:13
 premise_regula: 
     vrea_sistem_operare # not
 implicatie_regula:
-	sistem_operare  # (windwindows) | fc # (60)
+	sistem_operare  # (windows) | fc # (60)
 [/regula].
 
 [regula]
@@ -817,20 +817,11 @@ implicatie_regula:
 [regula]
 nr:77
 premise_regula: 
-    tableta # not
 	buget # (mare)
 implicatie_regula:
     laptop # (alienware) | fc # (90)
 [/regula].
 
-[regula]
-nr:100
-premise_regula: 
-    tableta # not
-	buget # (mare)
-implicatie_regula:
-    laptop # (asd) | fc # (30)
-[/regula].
 
 
 
