@@ -620,7 +620,7 @@ implicatie_regula:
 [/regula].
 
 [regula]
-nr:61
+nr:161
 premise_regula: 
 	buget # (mediu)
     placa_video

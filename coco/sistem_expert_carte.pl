@@ -298,12 +298,18 @@ pornire :-
 						interogheaza(Atr,Mesaj,Optiuni,Istorie),nl,
 						asserta( interogat(av(Atr,_)) ).
 						
-						interogheaza(Atr,Mesaj,[da,nu],Istorie) :-
+						interogheaza(Atr,Mesaj,[da,nu,nu_stiu,nu_conteaza],Istorie):-
 							!,write(Mesaj),nl,
-							citeste_opt(X,[da,nu],Istorie),
+							citeste_opt(X,[da,nu,nu_stiu,nu_conteaza],Istorie),
 							% de_la_utiliz(X,Istorie,[da,nu]),
-							det_val_fc(X,Val,FC),
-							asserta( fapt(av(Atr,Val),FC,[utiliz]) ).
+							(
+								X = 'nu_conteaza' -> 
+								asserta( fapt(av(Atr,da),100,[utiliz])),
+								asserta( fapt(av(Atr,da),-100,[utiliz]))
+								;	
+								det_val_fc(X,Val,FC),
+								asserta( fapt(av(Atr,Val),FC,[utiliz]) )
+							).
 
 						interogheaza(Atr,Mesaj,Optiuni,Istorie) :-
 							write(Mesaj),nl,
