@@ -302,7 +302,7 @@ pornire :-
 								Nume, 
 								Descriere, 
 								Imagine, 
-								proprietati(Prop)
+								Prop
 							)
 						) -->
 						numeSolutie(Nume),
@@ -513,14 +513,15 @@ pornire :-
 						fapt(av(Atr,Val),FC,_),
 						FC >= 20,						
 						scrie_scop(av(Atr,Val),FC),
-						nl,
-						executa([detalii]),
 						nl
 							;
 						write('Nu am gasit nici o soolutie pentru raspunsurile date.')
 				),fail.
 
-			afiseaza_scop(_):-nl,nl.
+			afiseaza_scop(_):-
+				executa([detalii]),
+				nl,
+				nl,nl.
 
 				scrie_scop(av(Atr,Val),FC) :-
 					transformare(av(Atr,Val), X),
@@ -589,17 +590,57 @@ pornire :-
 		detalii_da, !.
 		detalii_da :-
 			write('vezi browser'),
-			open('html_file', write, Stream), 
+			open('html_file8.html', write, Stream), 
 			write(Stream, '<html><body><h1>Solutii sistem expert</h1>'),
+			scop(Atr),
+			findall(Sol, FC^Istorie^(fapt(av(Atr, Sol), FC, Istorie), FC >= 20), ListaSol),
+
+
+			scrieSolutie(Stream, ListaSol),
+			write(Stream, '</body></html>'),
 			nl(Stream), 
 			close(Stream),
 			process_create(
 				'C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe', 
-				['html_file'], 
+				['html_file8.html'], 
 				[]
 			),
 			nl,nl
-			.
+			. 
+		 
+			scrieSolutie(Stream, []):- !. 
+			scrieSolutie(Stream, [Sol|T]) :- 
+	% cauta in baza de cunostinte un laptop cu numele sol si returneaza in sol valorile lu bob ala gasit
+				% fapt(av(Atr, Sol), _, _),
+				
+				solutie(Sol, Descriere, Imagine, Prop),
+				write(Stream, '<h2>'),
+				write(Stream, Sol),
+				write(Stream, '</h2>'),
+
+				write(Stream, '<p>'),
+				write(Stream, Descriere),
+				write(Stream, '</p>'),
+
+				write(Stream, '<img src="'),
+				write(Stream, Imagine),
+				write(Stream, '">'),
+
+				write(Stream, '<ul>'),
+				scrie_li(Prop,Stream),
+				write(Stream, '</ul>'),
+				nl(Stream),
+				scrieSolutie(Stream,T).
+
+			scrie_li([],Stream):- !.
+			scrie_li([H|T],Stream):- 
+				H = av(Atr, Val),
+				write(Stream, '<li>'),
+				write(Stream, Atr),	
+				write(Stream, ':'),	
+				write(Stream, Val),	
+				write(Stream, '</li>'),
+				scrie_li(T, Stream).
 
 	executa([detalii_nu]):- 
 		detalii_nu, !.
