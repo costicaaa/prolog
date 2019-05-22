@@ -148,7 +148,7 @@ pornire :-
 	repeat,
 	write('Introduceti una din urmatoarele optiuni: '),
 	nl,nl,
-	write(' (Incarca Consulta Reinitiaza  Afisare_fapte  Cum   Iesire) '),
+	write(' (Incarca Consulta Reinitiaza  Afisare_fapte  Cum   Iesire Detalii ) '),
 	nl,nl,write('|: '),citeste_linie([H|T]),/**/
 	executa([H|T]), H == iesire.
 	
@@ -562,6 +562,37 @@ pornire :-
 				nl,fail.
 
 			listeaza_fapte.
+
+
+	executa([detalii]) :-
+		detalii,!.
+
+		detalii :-
+			write('Detalii in browser? Da Nu '),
+			nl,
+			nl, 
+			nl,nl,
+			write('|: '),
+			citeste_linie([H|T]),
+			(
+				H == da -> 
+				executa([detalii_da])
+				;
+				executa([detalii_nu])	
+			).
+
+	executa([detalii_da]):- 
+		detalii_da, !.
+		detalii_da :-
+			write('detalii da'),
+			nl,nl
+			.
+
+	executa([detalii_nu]):- 
+		detalii_nu, !.
+		detalii_nu :-
+			nl,nl
+			.	
 
 
 	executa([cum|L]) :- cum(L),!.
