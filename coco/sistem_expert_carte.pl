@@ -7,6 +7,9 @@ pg 216
 
 
 :- use_module(library(file_systems),[]),file_systems:current_directory(_,'C:/stuff/fac/prolog/project/coco').
+use_module(library(shell)).
+
+process_create('C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe', ['C:\\stuff\\fac\\prolog\\project\\coco\\aaa.html'] , []).
 
 */
 
@@ -180,8 +183,11 @@ pornire :-
 			see(F),incarca_reguli,seen,!.
 
 			incarca_reguli :-
-				repeat,citeste_propozitie(L),
-				proceseaza(L),L == [end_of_file],nl.
+				repeat,
+				citeste_propozitie(L),
+				proceseaza(L),
+				L == [end_of_file],
+				nl.
 
 				citeste_propozitie([Cuv|Lista_cuv]) :-
 					get_code(Car),citeste_cuvant(Car, Cuv, Car1), 
