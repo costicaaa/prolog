@@ -444,7 +444,7 @@ pornire :-
 
 				parc([],Atr).
 				parc([(FC, X, Y)|T],Atr) :-
-					asserta(fapt(av(laptop,X), FC, Y)),
+					asserta(fapt(av(Atr,X), FC, Y)),
 					parc(T,Atr).	
 					
 			afiseaza_scop(Atr) :-
