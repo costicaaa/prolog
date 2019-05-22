@@ -20,6 +20,7 @@ curata_bc:-current_predicate(P), abolish(P,[force(true)]), fail;true.
 :-use_module(library(lists)).
 :-use_module(library(file_systems)).
 :-use_module(library(system)).
+:-use_module(library(process)).
 
 :-dynamic fapt/3.
 :-dynamic interogat/1.
@@ -148,7 +149,7 @@ pornire :-
 	repeat,
 	write('Introduceti una din urmatoarele optiuni: '),
 	nl,nl,
-	write(' (Incarca Consulta Reinitiaza  Afisare_fapte  Cum   Iesire Detalii ) '),
+	write(' (Incarca Consulta Reinitiaza  Afisare_fapte  Cum   Iesire ) '),
 	nl,nl,write('|: '),citeste_linie([H|T]),/**/
 	executa([H|T]), H == iesire.
 	
@@ -511,7 +512,10 @@ pornire :-
 					fapt(av(Atr,V),F,_) ->
 						fapt(av(Atr,Val),FC,_),
 						FC >= 20,						
-						scrie_scop(av(Atr,Val),FC),nl
+						scrie_scop(av(Atr,Val),FC),
+						nl,
+						executa([detalii]),
+						nl
 							;
 						write('Nu am gasit nici o soolutie pentru raspunsurile date.')
 				),fail.
@@ -584,7 +588,16 @@ pornire :-
 	executa([detalii_da]):- 
 		detalii_da, !.
 		detalii_da :-
-			write('detalii da'),
+			write('vezi browser'),
+			open('html_file', write, Stream), 
+			write(Stream, '<html><body><h1>Solutii sistem expert</h1>'),
+			nl(Stream), 
+			close(Stream),
+			process_create(
+				'C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe', 
+				['html_file'], 
+				[]
+			),
 			nl,nl
 			.
 
