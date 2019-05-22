@@ -7,8 +7,9 @@ pg 216
 
 
 :- use_module(library(file_systems),[]),file_systems:current_directory(_,'C:/stuff/fac/prolog/project/coco').
-use_module(library(shell)).
 
+
+use_module(library(process)).
 process_create('C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe', ['C:\\stuff\\fac\\prolog\\project\\coco\\aaa.html'] , []).
 
 */
@@ -25,6 +26,7 @@ curata_bc:-current_predicate(P), abolish(P,[force(true)]), fail;true.
 :-dynamic scop/1.
 :-dynamic interogabil/3.
 :-dynamic regula/3.
+:-dynamic solutie/4.
 
 :-op(900,fy,not).
 not(P) :- P, !, fail.
@@ -166,20 +168,31 @@ pornire :-
 
 
 	executa([incarca]) :- 
-		incarca,!,nl,
+		incarca(1),
+		incarca(2),
+		!,nl,
 		write('Fisierul dorit a fost incarcat'),nl.
 	
-		incarca :-
+		incarca(1) :-
 			%write('Introduceti numele fisierului care doriti sa fie incarcat: '),nl, write('|:'),read(F),
 			F = 'all',
-			file_exists(F),!,incarca(F).
+			file_exists(F),!,incarca(F, 1).
 
-		incarca:-write('Nume incorect de fisier! '),nl,fail.
+		incarca(2) :-
+			%write('Introduceti numele fisierului care doriti sa fie incarcat: '),nl, write('|:'),read(F),
+			F = 'desc',
+			file_exists(F),!,incarca(F, 2).
+
+		incarca:-write('Nume incorect de fisier! -- nu are cums a intre aici'),nl,fail.
 			
-		incarca(F) :-
+		incarca(F, 1) :-
 			retractall(interogat(_)),retractall(fapt(_,_,_)),
 			retractall(scop(_)),retractall(interogabil(_,_,_)),
 			retractall(regula(_,_,_)),
+			see(F),incarca_reguli,seen,!.
+
+		incarca(F, 2) :-
+			retractall(solutie(_,_,_,_)),
 			see(F),incarca_reguli,seen,!.
 
 			incarca_reguli :-
@@ -190,13 +203,25 @@ pornire :-
 				nl.
 
 				citeste_propozitie([Cuv|Lista_cuv]) :-
-					get_code(Car),citeste_cuvant(Car, Cuv, Car1), 
-					rest_cuvinte_propozitie(Car1, Lista_cuv).
+						get_code(Car),
+						citeste_cuvant(Car, Cuv, Car1), 
+						rest_cuvinte_propozitie(Car1, Lista_cuv).
 				 
 					rest_cuvinte_propozitie(-1, []):-!.
 						
 					rest_cuvinte_propozitie(Car,[]) :-Car==46, !.
-						
+
+
+					rest_cuvinte_propozitie(Car,[]) :-Car==35, citeste_13_diez(13), !. 
+
+					citeste_13_diez(0):- !.
+					citeste_13_diez(N):- 
+						get_code(_), 
+						N1 is N - 1,
+						citeste_13_diez(N1).
+
+					%  niciodata nu apeleaza rest_cuvinte_propozitie ( # ) 
+					% daca # este dupa spatiu sau new line, practic e ignorat
 					rest_cuvinte_propozitie(Car,[Cuv1|Lista_cuv]) :-
 						citeste_cuvant(Car,Cuv1,Car1),      
 						rest_cuvinte_propozitie(Car1,Lista_cuv).
@@ -245,27 +270,59 @@ pornire :-
 							
 						% afiseaza(P,P) -->  [].
 
-					trad(regula(N,premise(Daca),concluzie(Atunci,F))) --> 
-							identificator(N),daca(Daca),atunci(Atunci,F).
+					trad(regula(
+								N,
+								premise(Daca),
+								concluzie(Atunci,F)
+							)
+						) --> 
+
+							identificator(N),
+							daca(Daca),
+							atunci(Atunci,F).
 						
 						identificator(N) --> ['[',regula,']', nr, ':', N].
-							
 						daca(Daca) --> [premise_regula, ':'],lista_premise(Daca).
 
 							lista_premise([Daca]) --> propoz(Daca),[implicatie_regula, ':'].
-								
 							lista_premise([Prima|Celalalte]) --> propoz(Prima),lista_premise(Celalalte).
 
 						atunci(Atunci,FC) --> propoz(Atunci),['|', fc,'#', '(', FC, ')', '[','/',regula,']' ].
-							
 						atunci(Atunci,100) --> propoz(Atunci).
 
 							propoz(not av(Atr,da)) --> [Atr, '#', not].
-								
 							propoz(av(Atr,Val)) --> [Atr,'#', '(', Val, ')'].
-								
 							propoz(av(Atr,da)) --> [Atr].
 
+% trad de soolutie - > trebuie sa ii fac parsarea, salveaza 4
+
+
+					trad(solutie(
+								Nume, 
+								Descriere, 
+								Imagine, 
+								proprietati(Prop)
+							)
+						) -->
+						numeSolutie(Nume),
+						textDescriere(Descriere), 
+						caleImagine(Imagine),
+						toateProprietati(Prop), 
+						['#'].
+
+						numeSolutie(N) --> [solutie, '---', N].
+						textDescriere(D) --> [descriere, '---', D].
+						caleImagine(Imagine) --> [imagine, '---', '{', Imagine, '}'].
+					
+					
+						toateProprietati(Prop) --> [proprietati, '---', '{'],lista_proprietati(Prop).
+
+							lista_proprietati([Prop]) --> propoz(Prop), ['}'].
+							lista_proprietati([Prima | Celalalte]) --> propoz(Prima), [','],lista_proprietati(Celalalte).
+
+								% propoz(_) --> ['}'].
+								propoz(av(Atr,Val)) --> [Atr, '#', Val].
+								
 					trad('Eroare la parsare'-L,L,_).
 
 
@@ -456,7 +513,7 @@ pornire :-
 						FC >= 20,						
 						scrie_scop(av(Atr,Val),FC),nl
 							;
-						write('Nu am gasit nici o solutie pentru raspunsurile date.')
+						write('Nu am gasit nici o soolutie pentru raspunsurile date.')
 				),fail.
 
 			afiseaza_scop(_):-nl,nl.
