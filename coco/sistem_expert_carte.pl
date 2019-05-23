@@ -327,7 +327,8 @@ pornire :-
 					trad('Eroare la parsare'-L,L,_).
 
 
-	executa([consulta]) :- 
+	executa([consulta]) :-
+		% sterge_folder('output_dem_sistem'),
 		scopuri_princ,!.
 
 		scopuri_princ :-
@@ -780,13 +781,25 @@ pornire :-
 					;
 					make_directory(Folder)	
 			).
+
+		sterge_folder(Folder):- 
+			(
+				directory_exists(Folder) -> 
+				process_create(
+						'deltree', 
+						['output_dem_sistem'], 
+						[]
+				)
+					;
+					true
+			).
 		
 		gen_nume_fisier(av(Atr,Solutie),NumeFisier):-
 			fapt(av(Atr,Solutie),FC,_),
 			creaza_nume_fisier(Solutie,FC,NumeFisier).
 
 			creaza_nume_fisier(Solutie, FC, NumeFisier):-				
-				conversie_nr_atom(FC, FCstring),
+				nr_to_atom(FC, FCstring),
 
 				atom_concat( 'demonstratie###', Solutie, N1),
 				atom_concat( N1, '###', N2),
