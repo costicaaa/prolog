@@ -328,7 +328,7 @@ pornire :-
 
 
 	executa([consulta]) :-
-		% sterge_folder('output_dem_sistem'),
+		sterge_folder('output_dem_sistem'),
 		scopuri_princ,!.
 
 		scopuri_princ :-
@@ -788,11 +788,7 @@ pornire :-
 		sterge_folder(Folder):- 
 			(
 				directory_exists(Folder) -> 
-				process_create(
-						'deltree', 
-						['output_dem_sistem'], 
-						[]
-				)
+				delete_directory(Folder, [if_nonempty(delete)])
 					;
 					true
 			).
