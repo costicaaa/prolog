@@ -336,7 +336,7 @@ pornire :-
 			afiseaza_scop(Atr),
 			fail.
 		
-		scopuri_princ.
+			scopuri_princ.
 		
 			determina(Atr) :-
 				realizare_scop(av(Atr,_),_,[scop(Atr)]),!.
@@ -495,33 +495,62 @@ pornire :-
 								FC is round(X).
 								
 								
-			ordoneaza_solutii(Atr) :-
-					setof((FC, X, Y), 
-					retract(fapt(av(Atr,X), FC, Y)),ListaFinala),
-					parc(ListaFinala,Atr).
+			% ordoneaza_solutii(Atr) :-
+			% 		setof((FC, X, Y), 
+			% 		retract(fapt(av(Atr,X), FC, Y)),ListaFinala),
+			% 		parc(ListaFinala,Atr).
 
-				parc([],Atr).
-				parc([(FC, X, Y)|T],Atr) :-
-					asserta(fapt(av(Atr,X), FC, Y)),
-					parc(T,Atr).	
+			% 	parc([],Atr).
+			% 	parc([(FC, X, Y)|T],Atr) :-
+			% 		asserta(fapt(av(Atr,X), FC, Y)),
+			% 		parc(T,Atr).	
 					
-			afiseaza_scop(Atr) :-
-				nl,
-				ordoneaza_solutii(Atr),
-				(
-					fapt(av(Atr,V),F,_) ->
-						fapt(av(Atr,Val),FC,_),
-						FC >= 20,						
-						scrie_scop(av(Atr,Val),FC),
-						nl
-							;
-						write('Nu am gasit nici o soolutie pentru raspunsurile date.')
-				),fail.
+
+		afiseaza_scop(Atr) :-
+			nl,
+			(	fapt(av(Atr,_),_,_)->
+					ord_sol,
+					fapt(av(Atr,Val),FC,_),
+					FC >= 20,
+					scrie_scop(av(Atr,Val),FC),
+					scrie_in_fisier(av(Atr,Val)),
+					nl,
+					fail
+					;
+					write('Sistemul nu are solutii')
+			).
+		
+			ord_sol :- setof(fapt(FC,Atr,Val,Ist),retract(fapt(av(Atr,Val),FC,Ist)),ListaOrd),insertOrd(ListaOrd).
+			insertOrd([fapt(FC,Atr,Val,Ist)|T]):- asserta(fapt(av(Atr,Val),FC,Ist)),insertOrd(T).
+			insertOrd([]).
+				
+			
+			% afiseaza_scop_old(Atr) :-
+			% 	nl,
+			% 	ordoneaza_solutii(Atr),
+			% 	(
+			% 		fapt(av(Atr,V),F,_) ->
+			% 			fapt(av(Atr,Val),FC,_),
+			% 			FC >= 20,						
+			% 			scrie_scop(av(Atr,Val),FC),
+			% 			nl,
+			% 			scrie_in_fisier(av(Atr,Val))
+			% 				;
+			% 			write('Nu am gasit nici o soolutie pentru raspunsurile date.')
+			% 	),
+			% 	fail.
 
 			afiseaza_scop(_):-
-				executa([detalii]),
+				(
+					scop(Atr),
+					fapt(av(Atr,_),_,_) -> 
+						executa([detalii])
+						;
+						nl
+				),
 				nl,
-				nl,nl.
+				nl,
+				nl.
 
 				scrie_scop(av(Atr,Val),FC) :-
 					transformare(av(Atr,Val), X),
@@ -642,6 +671,7 @@ pornire :-
 				write(Stream, '</li>'),
 				scrie_li(T, Stream).
 
+%  todo :: figure out what this does
 	executa([detalii_nu]):- 
 		detalii_nu, !.
 		detalii_nu :-
@@ -731,3 +761,43 @@ pornire :-
 		
 	executa([_|_]) :-
 		write('Comanda incorecta! '),nl.
+
+	scrie_in_fisier(Scop):- 
+		verifica_folder('output_dem_sistem'),
+		gen_nume_fisier(Scop,NumeFisier),
+		atom_concat( 'output_dem_sistem/', NumeFisier, Path),
+		telling(Curent_input),
+		tell(Path),
+			transforma_scop(Scop,L),
+			executa([cum|L]),
+		told,
+		tell(Curent_input),!.
+
+		verifica_folder(Folder):- 
+			(
+				directory_exists(Folder) -> 
+					true
+					;
+					make_directory(Folder)	
+			).
+		
+		gen_nume_fisier(av(Atr,Solutie),NumeFisier):-
+			fapt(av(Atr,Solutie),FC,_),
+			creaza_nume_fisier(Solutie,FC,NumeFisier).
+
+			creaza_nume_fisier(Solutie, FC, NumeFisier):-				
+				conversie_nr_atom(FC, FCstring),
+
+				atom_concat( 'demonstratie###', Solutie, N1),
+				atom_concat( N1, '###', N2),
+				atom_concat( N2, FCstring, N3),
+				atom_concat( N3, '.txt', NumeFisier).
+				
+				nr_to_atom(Nr,Atom):-
+					number_chars(Nr, Lchr),
+					atom_chars(Atom, Lchr).
+	
+
+					transforma_scop(av(A,da),[A]) :- !.
+					transforma_scop(av(A,nu), [nu,A]) :- !.
+					transforma_scop(av(A,V),[A,este,V]).
