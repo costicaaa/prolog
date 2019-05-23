@@ -630,13 +630,20 @@ pornire :-
 			write(Stream, '</body></html>'),
 			nl(Stream), 
 			close(Stream),
-			process_create(
-				'C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe', 
-				['html_file8.html'], 
-				[]
+			
+			(
+				file_exists('C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe') ->
+				process_create(
+						'C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe', 
+						['html_file8.html'], 
+						[]
+					)
+					;
+					nl,
+					write('Chrome exec not found'),
+					! 
 			),
-			nl,nl
-			. 
+			nl. 
 			scrieSolutie(Stream, []):- !. 
 			scrieSolutie(Stream, [Sol|T]) :- 
 	% cauta in baza de cunostinte un laptop cu numele sol si returneaza in sol valorile lu bob ala gasit
@@ -816,4 +823,5 @@ pornire :-
 
 
 % used for striping of ' in description for echoing in html 
+% source : https://stackoverflow.com/questions/19736439/delete-character-from-string-in-prolog
 			remove_char(S,C,X) :- atom_concat(L,R,S), atom_concat(C,W,R), atom_concat(L,W,X).
