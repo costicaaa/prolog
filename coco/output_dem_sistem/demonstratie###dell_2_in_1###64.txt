@@ -1,0 +1,139 @@
+
+laptop este dell_2_in_1 a fost derivat cu ajutorul regulilor:  60 
+
+[regula] 
+nr: 60 
+premise_regula: 
+     buget # ( mediu ) 
+     sistem_operare # ( windows ) 
+     dimensiune # ( medie ) 
+     placa_video # not 
+     ram # ( mediu ) 
+implicatie_regula: 
+    laptop # ( dell_2_in_1 ) | fc # ( 70 ) 
+[/regula] 
+
+buget este mediu a fost derivat cu ajutorul regulilor:  utiliz 
+
+sistem_operare este windows a fost derivat cu ajutorul regulilor:  13 4 
+
+[regula] 
+nr: 13 
+premise_regula: 
+     vrea_sistem_operare # not 
+implicatie_regula: 
+    sistem_operare # ( windows ) | fc # ( 60 ) 
+[/regula] 
+
+not vrea_sistem_operare a fost derivat cu ajutorul regulilor:  utiliz 
+
+[regula] 
+nr: 4 
+premise_regula: 
+     mod_principal_utilizare # ( office ) 
+     nivel_utilizator # ( mediu ) 
+implicatie_regula: 
+    sistem_operare # ( windows ) | fc # ( 90 ) 
+[/regula] 
+
+mod_principal_utilizare este office a fost derivat cu ajutorul regulilor:  utiliz 
+
+nivel_utilizator este mediu a fost derivat cu ajutorul regulilor:  utiliz 
+
+dimensiune este medie a fost derivat cu ajutorul regulilor:  30 27 
+
+[regula] 
+nr: 30 
+premise_regula: 
+     ecran # ( mediu ) 
+     greutate # ( mare ) 
+implicatie_regula: 
+    dimensiune # ( medie ) | fc # ( 80 ) 
+[/regula] 
+
+ecran este mediu a fost derivat cu ajutorul regulilor:  utiliz 
+
+greutate este mare a fost derivat cu ajutorul regulilor:  18 
+
+[regula] 
+nr: 18 
+premise_regula: 
+     locatie # ( calatorii ) 
+     probleme_sanatate # not 
+implicatie_regula: 
+    greutate # ( mare ) | fc # ( 60 ) 
+[/regula] 
+
+locatie este calatorii a fost derivat cu ajutorul regulilor:  utiliz 
+
+not probleme_sanatate a fost derivat cu ajutorul regulilor:  utiliz 
+
+[regula] 
+nr: 27 
+premise_regula: 
+     ecran # ( mediu ) 
+     greutate # ( medie ) 
+implicatie_regula: 
+    dimensiune # ( medie ) | fc # ( 99 ) 
+[/regula] 
+
+ecran este mediu a fost derivat cu ajutorul regulilor:  utiliz 
+
+greutate este medie a fost derivat cu ajutorul regulilor:  17 
+
+[regula] 
+nr: 17 
+premise_regula: 
+     locatie # ( calatorii ) 
+     probleme_sanatate # not 
+implicatie_regula: 
+    greutate # ( medie ) | fc # ( 85 ) 
+[/regula] 
+
+locatie este calatorii a fost derivat cu ajutorul regulilor:  utiliz 
+
+not probleme_sanatate a fost derivat cu ajutorul regulilor:  utiliz 
+
+not placa_video a fost derivat cu ajutorul regulilor:  40 33 
+
+[regula] 
+nr: 40 
+premise_regula: 
+     jocuri # not 
+implicatie_regula: 
+    placa_video # not | fc # ( 85 ) 
+[/regula] 
+
+not jocuri a fost derivat cu ajutorul regulilor:  utiliz 
+
+[regula] 
+nr: 33 
+premise_regula: 
+     mod_principal_utilizare # ( office ) 
+     jocuri # not 
+implicatie_regula: 
+    placa_video # not | fc # ( 99 ) 
+[/regula] 
+
+mod_principal_utilizare este office a fost derivat cu ajutorul regulilor:  utiliz 
+
+not jocuri a fost derivat cu ajutorul regulilor:  utiliz 
+
+ram este mediu a fost derivat cu ajutorul regulilor:  48 
+
+[regula] 
+nr: 48 
+premise_regula: 
+     mod_principal_utilizare # ( office ) 
+     nivel_utilizator # ( mediu ) 
+     fire_rabdatoare # not 
+implicatie_regula: 
+    ram # ( mediu ) | fc # ( 99 ) 
+[/regula] 
+
+mod_principal_utilizare este office a fost derivat cu ajutorul regulilor:  utiliz 
+
+nivel_utilizator este mediu a fost derivat cu ajutorul regulilor:  utiliz 
+
+not fire_rabdatoare a fost derivat cu ajutorul regulilor:  utiliz 
+

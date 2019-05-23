@@ -1,38 +1,55 @@
-solutie --- sol1
-descriere --- d1
-imagine --- {img1} 
-proprietati --- {prop1 # val1, prop2 # val2}
-###############
-
-solutie --- alienware
-descriere --- d2
-imagine --- {img2} 
-proprietati --- {prop3 # val3, prop4 # val4, prop5 # val5}
-###############
-
-
 solutie --- asus_ultrabook
-descriere --- ddastasdfasdf
-imagine --- {segrservgserg} 
-proprietati --- {prop3 # val3, prop4 # val4, prop5 # val5}
+descriere --- 'Descriere asus_ultrabook'
+imagine --- {'img/asus_ultrabook.jpg'} 
+proprietati --- {tableta # nu, buget # mediu, sistem_operare # windows, dimensiune # medie,  greutate # medie, placa_video # nu, tip_storage # ssd, ram # mediu}
 ###############
 
+solutie --- asus_2_in_1
+descriere --- 'Descriere asus_2_in_1'
+imagine --- {'img/asus_ultrabook.jpg'} 
+proprietati --- {tableta # da, buget # mic, sistem_operare # windows, dimensiune # mica,  greutate # mica, placa_video # nu, tip_storage # ssd, ram # mic}
+###############
 
 solutie --- dell_2_in_1
-descriere --- ergvsrvsergserg
-imagine --- {segrservgserg} 
-proprietati --- {prop3 # val3, prop4 # val4, prop5 # val5}
+descriere --- 'Descriere dell_2_in_1'
+imagine --- {'img/asus_ultrabook.jpg'} 
+proprietati --- {tableta # da, buget # mic, sistem_operare # windows, dimensiune # medie,  greutate # medie, placa_video # nu, tip_storage # ssd, ram # mediu}
 ###############
 
 
 solutie --- hp_pavilion
-descriere --- asdasdasfresg
-imagine --- {segrservgserg} 
-proprietati --- {prop3 # val3, prop4 # val4, prop5 # val5}
+descriere --- 'Descriere hp_pavilion'
+imagine --- {'img/asus_ultrabook.jpg'} 
+proprietati --- {tableta # nu, buget # mediu, sistem_operare # windows, dimensiune # medie,  greutate # medie, placa_video # nu, tip_storage # hdd, ram # mediu, placa_video # da}
 ###############
 
+
 solutie --- macbook
-descriere --- xxxxx
-imagine --- {segrservgserg} 
-proprietati --- {prop3 # val3, prop4 # val4, prop5 # val5}
+descriere --- 'Descriere macbook'
+imagine --- {'img/asus_ultrabook.jpg'} 
+proprietati --- {tableta # nu, buget # mediu, sistem_operare # macos, dimensiune # medie,  greutate # medie, placa_video # nu, tip_storage # ssd, ram # mediu}
+###############
+
+solutie --- gaming_asus
+descriere --- 'Descriere gaming_asus'
+imagine --- {'img/asus_ultrabook.jpg'} 
+proprietati --- {tableta # nu, buget # mediu, sistem_operare # nu_are, dimensiune # mare,  greutate # mare, tip_storage # hdd, ram # mediu, placa_video # da}
+###############
+
+solutie --- alienware
+descriere --- 'Descriere alienware'
+imagine --- {'img/asus_ultrabook.jpg'}
+proprietati --- {tableta # nu, buget # mare, sistem_operare # windows, dimensiune # mare,  greutate # mare, tip_storage # sshd, ram # mediu, placa_video # da}
+###############
+
+solutie --- hp_probook
+descriere --- 'Descriere hp_probook'
+imagine --- {'img/asus_ultrabook.jpg'} 
+proprietati --- {tableta # nu, buget # mediu, sistem_operare # windows, dimensiune # medie,  greutate # medie, tip_storage # hdd, ram # putin}
+###############
+
+solutie --- lenovo_multimedia
+descriere --- 'Descriere lenovo_multimedia'
+imagine --- {'img/asus_ultrabook.jpg'} 
+proprietati --- {tableta # nu, buget # mediu, sistem_operare # fara_sistem_operare, dimensiune # mare,  greutate # mare, tip_storage # hdd, ram # putin}
 ###############

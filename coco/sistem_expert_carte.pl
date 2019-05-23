@@ -637,7 +637,6 @@ pornire :-
 			),
 			nl,nl
 			. 
-		 
 			scrieSolutie(Stream, []):- !. 
 			scrieSolutie(Stream, [Sol|T]) :- 
 	% cauta in baza de cunostinte un laptop cu numele sol si returneaza in sol valorile lu bob ala gasit
@@ -648,13 +647,17 @@ pornire :-
 				write(Stream, Sol),
 				write(Stream, '</h2>'),
 
+				remove_char(Descriere, '\'', D2),
+				remove_char(D2, '\'', DescFaraGhilimeles),
 				write(Stream, '<p>'),
-				write(Stream, Descriere),
+				write(Stream, DescFaraGhilimeles),
 				write(Stream, '</p>'),
 
-				write(Stream, '<img src="'),
+
+
+				write(Stream, '<img src='),
 				write(Stream, Imagine),
-				write(Stream, '">'),
+				write(Stream, '>'),
 
 				write(Stream, '<ul>'),
 				scrie_li(Prop,Stream),
@@ -811,6 +814,10 @@ pornire :-
 					atom_chars(Atom, Lchr).
 	
 
-					transforma_scop(av(A,da),[A]) :- !.
-					transforma_scop(av(A,nu), [nu,A]) :- !.
-					transforma_scop(av(A,V),[A,este,V]).
+				transforma_scop(av(A,da),[A]) :- !.
+				transforma_scop(av(A,nu), [nu,A]) :- !.
+				transforma_scop(av(A,V),[A,este,V]).
+
+
+% used for striping of ' in description for echoing in html 
+			remove_char(S,C,X) :- atom_concat(L,R,S), atom_concat(C,W,R), atom_concat(L,W,X).

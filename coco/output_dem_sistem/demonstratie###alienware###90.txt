@@ -1,0 +1,13 @@
+
+laptop este alienware a fost derivat cu ajutorul regulilor:  77 
+
+[regula] 
+nr: 77 
+premise_regula: 
+     buget # ( mare ) 
+implicatie_regula: 
+    laptop # ( alienware ) | fc # ( 90 ) 
+[/regula] 
+
+buget este mare a fost derivat cu ajutorul regulilor:  utiliz 
+
