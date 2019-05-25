@@ -657,8 +657,8 @@ pornire :-
 				write(Stream, Sol),
 				write(Stream, '</h2>'),
 
-				remove_char(Descriere, '\'', D2),
-				remove_char(D2, '\'', DescFaraGhilimeles),
+				clean_string_delimiters(Descriere, DescFaraGhilimeles),
+
 				write(Stream, '<p>'),
 				write(Stream, DescFaraGhilimeles),
 				write(Stream, '</p>'),
@@ -825,6 +825,11 @@ pornire :-
 				transforma_scop(av(A,V),[A,este,V]).
 
 
-% used for striping of ' in description for echoing in html 
-% source : https://stackoverflow.com/questions/19736439/delete-character-from-string-in-prolog
-			remove_char(S,C,X) :- atom_concat(L,R,S), atom_concat(C,W,R), atom_concat(L,W,X).
+% % used for striping of ' in description for echoing in html 
+% % source : https://stackoverflow.com/questions/19736439/delete-character-from-string-in-prolog
+% 			remove_char(S,C,X) :- atom_concat(L,R,S), atom_concat(C,W,R), atom_concat(L,W,X).
+
+			clean_string_delimiters(String, Result) :-
+				atom_length(String, Str_length),
+				Final_length is Str_length - 2,
+				sub_atom(String, 1, Final_length, 1, Result).
