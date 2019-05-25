@@ -603,17 +603,20 @@ pornire :-
 		detalii,!.
 
 		detalii :-
-			write('Detalii in browser? Da Nu '),
 			nl,
-			nl, 
-			nl,nl,
+			write('Detalii in browser? Da / Nu '),
+			nl,
 			write('|: '),
 			citeste_linie([H|T]),
 			(
 				H == da -> 
 				executa([detalii_da])
 				;
-				executa([detalii_nu])	
+					H == nu -> 
+					executa([detalii_nu])
+					;
+					write('Comanda incorecta!'),
+					nl
 			).
 
 	executa([detalii_da]):- 
