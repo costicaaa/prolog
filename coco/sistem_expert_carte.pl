@@ -624,7 +624,11 @@ pornire :-
 		detalii_da :-
 			write('vezi browser'),
 			open('html_file8.html', write, Stream), 
-			write(Stream, '<html><body><h1>Solutii sistem expert</h1>'),
+			write(Stream, '<html><body>'),
+			write(Stream, '<link rel="stylesheet" type="text/css" href="assets/global.css">'),
+			write(Stream, '<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>'),
+			write(Stream, '<script src="assets/main.js"></script>'),
+			write(Stream, '<h1>Solutii sistem expert</h1>'),
 			scop(Atr),
 			findall(Sol, FC^Istorie^(fapt(av(Atr, Sol), FC, Istorie), FC >= 20), ListaSol),
 
@@ -669,9 +673,47 @@ pornire :-
 				write(Stream, Imagine),
 				write(Stream, '>'),
 
-				write(Stream, '<ul>'),
-				scrie_li(Prop,Stream),
-				write(Stream, '</ul>'),
+				write(Stream, '<br>'),
+
+				write(Stream, '<button class="js--changeDisplay" data-display="1" data-sol="'),
+				write(Stream, Sol),
+				write(Stream, '">Schimba afisare!</button>'),
+
+				write(Stream, '<div id="ul_'),
+				write(Stream, Sol),
+				write(Stream, '">'),
+					write(Stream, '<ul>'),
+					scrie_li(Prop,Stream),
+					write(Stream, '</ul>'),
+				write(Stream, '</div>'),
+
+				write(Stream, '<br>'),
+
+				write(Stream, '<div style="display:none" id="table_'),
+				write(Stream, Sol),
+				write(Stream, '">'),
+
+					write(Stream, '<table>'),
+
+						write(Stream, '<thead>'),
+						write(Stream, '<tr>'),
+						write(Stream, '<td>'),
+						write(Stream, 'Atribut'),
+						write(Stream, '</td>'),
+
+						write(Stream, '<td>'),
+						write(Stream, 'Valoare'),
+						write(Stream, '</td>'),
+						write(Stream, '</tr>'),
+						write(Stream, '</thead>'),
+
+						write(Stream, '<tbody>'),
+						scrie_tr(Prop,Stream),
+						write(Stream, '</tbody>'),
+
+					write(Stream, '</table>'),
+				write(Stream, '</div>'),
+
 				nl(Stream),
 				scrieSolutie(Stream,T).
 
@@ -679,11 +721,26 @@ pornire :-
 			scrie_li([H|T],Stream):- 
 				H = av(Atr, Val),
 				write(Stream, '<li>'),
-				write(Stream, Atr),	
-				write(Stream, ':'),	
-				write(Stream, Val),	
+					write(Stream, Atr),	
+					write(Stream, ':'),	
+					write(Stream, Val),	
 				write(Stream, '</li>'),
 				scrie_li(T, Stream).
+
+
+			scrie_tr([],Stream):- !.
+			scrie_tr([H|T],Stream):- 
+				H = av(Atr, Val),
+				write(Stream, '<tr>'),
+					write(Stream, '<td>'),
+						write(Stream, Atr),	
+					write(Stream, '</td>'),
+
+					write(Stream, '<td>'),
+						write(Stream, Val),	
+					write(Stream, '</td>'),
+				write(Stream, '</tr>'),
+				scrie_tr(T, Stream).
 
 %  todo :: figure out what this does
 	executa([detalii_nu]):- 
