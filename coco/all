@@ -74,9 +74,7 @@ implicatie_regula:
 nr:8
 premise_regula: 
     mod_principal_utilizare # (artist)
-	nivel_utilizator # (incepator)
     vrea_sistem_operare
-	jocuri
 implicatie_regula:
 	sistem_operare  # (macos) | fc # (80)
 [/regula].
@@ -595,7 +593,6 @@ implicatie_regula:
 nr:61
 premise_regula: 
 	buget # (mediu)
-    folosire_fara_priza # (rar)
     sistem_operare # (windows)
     dimensiune # (medie)
     placa_video
@@ -609,7 +606,6 @@ implicatie_regula:
 nr:62
 premise_regula: 
 	buget # (mediu)
-    folosire_fara_priza # (rar)
     sistem_operare # (windows)
     dimensiune # (medie)
     placa_video # not
@@ -633,7 +629,6 @@ implicatie_regula:
 nr:63
 premise_regula: 
 	buget # (mediu)
-    folosire_fara_priza # (rar)
     dimensiune # (medie)
     placa_video
     tip_storage # (hdd)
@@ -695,7 +690,6 @@ implicatie_regula:
 nr:67
 premise_regula: 
 	buget # (mediu)
-    folosire_fara_priza # (rar)
     sistem_operare # (windows)
     dimensiune # (medie)
     tip_storage # (hdd)
@@ -708,11 +702,9 @@ implicatie_regula:
 nr:68 
 premise_regula: 
 	buget # (mediu)
-    folosire_fara_priza # (rar)
     sistem_operare # (fara_sistem_operare)
     dimensiune # (medie)
     tip_storage # (hdd)
-    ram # (putin)
 implicatie_regula:
     laptop # (lenovo_multimedia) | fc # (99)
 [/regula].
@@ -721,12 +713,9 @@ implicatie_regula:
 nr:69
 premise_regula: 
 	buget # (mediu)
-    folosire_fara_priza # (rar)
     sistem_operare # (macos)
     dimensiune # (medie)
-    placa_video # not
     tip_storage # (ssd)
-    ram # (mediu)
 implicatie_regula:
     laptop # (macbook) | fc # (100)
 [/regula].
@@ -735,7 +724,6 @@ implicatie_regula:
 nr:70
 premise_regula: 
 	buget # (mediu)
-    folosire_fara_priza # (rar)
     sistem_operare # (windows)
     dimensiune # (mare)
     placa_video
@@ -749,7 +737,6 @@ implicatie_regula:
 nr:71
 premise_regula: 
 	buget # (mediu)
-    folosire_fara_priza # (rar)
     sistem_operare # (fara_sistem_operare)
     dimensiune # (mare)
     placa_video
@@ -763,7 +750,6 @@ implicatie_regula:
 nr:72
 premise_regula: 
 	buget # (mediu)
-    folosire_fara_priza # (rar)
     sistem_operare # (fara_sistem_operare)
     dimensiune # (medie)
     placa_video
@@ -777,7 +763,6 @@ implicatie_regula:
 nr:73
 premise_regula: 
 	buget # (mediu)
-    folosire_fara_priza # (rar)
     dimensiune # (medie)
     placa_video
     tip_storage # (hdd)
@@ -836,12 +821,6 @@ optiuni # {da * nu}
 text # 'Care este bugetul pe care sunteti dispus sa il alocati?'
 atributul_intrebarii # buget
 optiuni # {mic * mediu * mare}
-[/intrebare].
-
-[intrebare]
-text # 'Veti avea acces la prize pentru a alimenta laptopul:'
-atributul_intrebarii # folosire_fara_priza
-optiuni # {rar * uneori * in_principal}
 [/intrebare].
 
 
