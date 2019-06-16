@@ -59,7 +59,6 @@ citeste_cuvant(Caracter,Cuvant,Caracter1) :-
 	
 	caracter_cuvant(C):-member(C,[44,59,58,63,33,46,41,40,123,125,42,47,91,93,35,124]).
     % am specificat ASCII pentru   ,  ;  :  ?  !  .  )  (   {   }  *  /  [  ]  #   |
-	% terbuie adaugat {} * / [] # | 
 
 
 citeste_cuvant(Caracter, Numar, Caracter1) :-
@@ -117,6 +116,7 @@ citeste_cuvant(Caracter,Cuvant,Caracter1) :-
 	citeste_intreg_cuvantul(Caractere,Caracter1),
 	name(Cuvant,[Caracter_modificat|Caractere]).
     
+	% define ce sa fie considerat cuvant 
 	caractere_in_interiorul_unui_cuvant(C):-
 		C >= 48,C =< 57;  % [0,9]
 		C >= 65,C =< 90;  % [A,Z]
@@ -207,12 +207,13 @@ pornire :-
 						get_code(Car),
 						citeste_cuvant(Car, Cuv, Car1), 
 						rest_cuvinte_propozitie(Car1, Lista_cuv).
-				 
+					
 					rest_cuvinte_propozitie(-1, []):-!.
 						
+						%  punctu e 46
 					rest_cuvinte_propozitie(Car,[]) :-Car==46, !.
 
-
+						%  # e 35 
 					rest_cuvinte_propozitie(Car,[]) :-Car==35, citeste_13_diez(13), !. 
 
 					citeste_13_diez(0):- !.
@@ -242,8 +243,10 @@ pornire :-
 					),!.
 					% trad(scop(X)) --> [scopul,este,X].
 
+						%  parsare laptop
 					trad(scop(X)) --> ['[',scop,']',X,'[','/',scop,']'].
 						
+						% parsare intrebare 
 					trad(interogabil(Atr,M,P)) --> 
 						['[',intrebare,']'],afiseaza(Atr,P),atribut(Atr),lista_optiuni(M), ['[','/',intrebare,']'].
 						
@@ -259,18 +262,8 @@ pornire :-
 							
 						afiseaza(P,P) -->  [].
 
-						% [intreaba,Atr],lista_optiuni(M),afiseaza(Atr,P).
-						
-						% lista_optiuni(M) --> [optiuni,'('],lista_de_optiuni(M).
-
-						% 	lista_de_optiuni([Element]) -->  [Element,')'].
-								
-						% 	lista_de_optiuni([Element|T]) --> [Element],lista_de_optiuni(T).
-
-						% afiseaza(_,P) -->  [afiseaza,P].
-							
-						% afiseaza(P,P) -->  [].
-
+					
+						% parsare regula
 					trad(regula(
 								N,
 								premise(Daca),
@@ -297,7 +290,7 @@ pornire :-
 
 % trad de soolutie - > trebuie sa ii fac parsarea, salveaza 4
 
-
+							% parsare solutie
 					trad(solutie(
 								Nume, 
 								Descriere, 
@@ -402,6 +395,7 @@ pornire :-
 										afis_istorie([N|T]) :-
 											afis_regula(N),!,afis_istorie(T).
 										
+										%  raspuns corect
 									proceseaza_raspuns([X],_,Lista_opt):-
 										member(X,Lista_opt).
 										
@@ -412,6 +406,7 @@ pornire :-
 							assert_fapt(Atr,[Val,fc,FC],ActualOptiuni) :-
 								!,asserta( fapt(av(Atr,Val),FC,[utiliz]) ).
 
+								% verifica daca e nu conteaza sau nu 
 							assert_fapt(Atr,[Val],ActualOptiuni) :-
 								(
 									Val = 'nu_conteaza' -> 
@@ -440,7 +435,7 @@ pornire :-
 
 						
 
-
+					%  incearca sa demonstreze
 				realizare_scop(Scop,FC_curent,Istorie) :-
 					fg(Scop,FC_curent,Istorie).
 					
@@ -496,16 +491,6 @@ pornire :-
 								FC is round(X).
 								
 								
-			% ordoneaza_solutii(Atr) :-
-			% 		setof((FC, X, Y), 
-			% 		retract(fapt(av(Atr,X), FC, Y)),ListaFinala),
-			% 		parc(ListaFinala,Atr).
-
-			% 	parc([],Atr).
-			% 	parc([(FC, X, Y)|T],Atr) :-
-			% 		asserta(fapt(av(Atr,X), FC, Y)),
-			% 		parc(T,Atr).	
-					
 
 		afiseaza_scop(Atr) :-
 			nl,
@@ -526,21 +511,6 @@ pornire :-
 			insertOrd([]).
 				
 			
-			% afiseaza_scop_old(Atr) :-
-			% 	nl,
-			% 	ordoneaza_solutii(Atr),
-			% 	(
-			% 		fapt(av(Atr,V),F,_) ->
-			% 			fapt(av(Atr,Val),FC,_),
-			% 			FC >= 20,						
-			% 			scrie_scop(av(Atr,Val),FC),
-			% 			nl,
-			% 			scrie_in_fisier(av(Atr,Val))
-			% 				;
-			% 			write('Nu am gasit nici o soolutie pentru raspunsurile date.')
-			% 	),
-			% 	fail.
-
 			afiseaza_scop(_):-
 				(
 					scop(Atr),
@@ -742,7 +712,6 @@ pornire :-
 				write(Stream, '</tr>'),
 				scrie_tr(T, Stream).
 
-%  todo :: figure out what this does
 	executa([detalii_nu]):- 
 		detalii_nu, !.
 		detalii_nu :-
@@ -882,10 +851,7 @@ pornire :-
 				transforma_scop(av(A,V),[A,este,V]).
 
 
-% % used for striping of ' in description for echoing in html 
-% % source : https://stackoverflow.com/questions/19736439/delete-character-from-string-in-prolog
-% 			remove_char(S,C,X) :- atom_concat(L,R,S), atom_concat(C,W,R), atom_concat(L,W,X).
-
+				% cerinta 5 
 			clean_string_delimiters(String, Result) :-
 				atom_length(String, Str_length),
 				Final_length is Str_length - 2,
