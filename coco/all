@@ -789,22 +789,14 @@ implicatie_regula:
     laptop # (gaming_asus) | fc # (40)
 [/regula].
 
-[regula]
-nr:76
-premise_regula: 
-    hibrid # not
-	buget # (mare)
-    probleme_sanatate # not
-implicatie_regula:
-    laptop # (alienware) | fc # (99)
-[/regula].
 
 [regula]
 nr:77
 premise_regula: 
 	buget # (mare)
+    tableta # not
 implicatie_regula:
-    laptop # (alienware) | fc # (90)
+    laptop # (alienware) | fc # (87)
 [/regula].
 
 
