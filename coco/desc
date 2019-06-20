@@ -1,17 +1,17 @@
 solutie --- asus_ultrabook
-descriere --- 'Descriere asus_ultrabook'
+descriere --- 'Cu oricare ZenBook, confortul dvs. este una dintre prioritatile noastre de top, ZenBook S surpinde cu balama exclusiva ErgoLift, o capodopera tehnica proiectata pentru a inclina automat tastatura in cea mai confortabila pozitie de scriere. Dar asta nu este totul: inclinarea atenta imbunatatita imbunatateste performantele de racire si audio.'
 imagine --- {'img/asus_ultrabook.jpg'} 
 proprietati --- {tableta # nu, buget # mediu, sistem_operare # windows, dimensiune # medie,  greutate # medie, placa_video # nu, tip_storage # ssd, ram # mediu}
 ###############
 
 solutie --- asus_2_in_1
-descriere --- 'Descriere asus_2_in_1'
+descriere --- 'ASUS Transformer Book T101HA Moduri multiple. Culori metalice multiple Design extraordinar pentru libertate completa de miscare! Atunci cand am proiectat modulul tableta al modelului Transformer Book T101HA, am decis utilizarea aluminiului ca material de baza pentru rezistenta, dimensiuni si greutate reduse. Acesta ofera si o senzatie deosebita in utilizare, fiind de asemenea foarte rezistent in conditii de utilizare normale.'
 imagine --- {'img/asus_2_in_1.jpg'} 
 proprietati --- {tableta # da, buget # mic, sistem_operare # windows, dimensiune # mica,  greutate # mica, placa_video # nu, tip_storage # ssd, ram # mic}
 ###############
 
 solutie --- dell_2_in_1
-descriere --- 'Descriere dell_2_in_1'
+descriere --- 'Laptop 2 in 1 Dell Inspiron 5378 cu procesor Intel® Core™ i3-7130U 2.70 GHz, Kaby Lake, 13.3", Full HD, IPS, Touch, 4GB, 256GB SSD, Intel® HD Graphics 620, Microsoft Windows 10, Gray Noul laptop 2 in 1 Dell seria 5000 Ne place munca ta. De aceea am creat linia Inspiron. Sunt elegante, versatile si ambalate cu potential.'
 imagine --- {'img/dell_2_in_1.jpg'} 
 proprietati --- {tableta # da, buget # mic, sistem_operare # windows, dimensiune # medie,  greutate # medie, placa_video # nu, tip_storage # ssd, ram # mediu}
 ###############
@@ -25,31 +25,31 @@ proprietati --- {tableta # nu, buget # mediu, sistem_operare # windows, dimensiu
 
 
 solutie --- macbook
-descriere --- 'Descriere macbook'
+descriere --- 'Cel mai îndrăgit Mac e pe cale să te facă să te îndrăgostești din nou. Disponibil pe argintiu, gri stelar și auriu, noul MacBook Air este mai subțire, mai ușor și are un ecran Retina strălucit, Touch ID, tastatură de ultimă generație și trackpad Force Touch. Designul emblematic e creat din aluminiu reciclat 100%, ceea ce îl face cel mai ecologic Mac. Iar datorită bateriei care te ține toată ziua, MacBook Air e notebookul tău perfect portabil, care le face pe toate.'
 imagine --- {'img/macbook.jpg'} 
 proprietati --- {tableta # nu, buget # mediu, sistem_operare # macos, dimensiune # medie,  greutate # medie, placa_video # nu, tip_storage # ssd, ram # mediu}
 ###############
 
 solutie --- gaming_asus
-descriere --- 'Descriere gaming_asus'
+descriere --- 'ASUS TUF Gaming FX504 este un laptop puternic ce combina o experienta foarte imersiva in segmentul jocurilor cu o durata de viata ce depaseste cu mult standardele in acest segment. FX504 a fost creat pentru jocuri intense si eficienta ridicata, iar aspectul sau este unul pe masura. Aratati-le tuturor ca sunteti un adevarat pasionat de jocuri, sau optati pentru un aspect elegant si profesionist -  Finisajul include chiar si un logo ASUS iluminat in rosu — simbolul perfect al durabilitatii si pasiunii pentru jocuri.'
 imagine --- {'img/gaming_asus.jpg'} 
 proprietati --- {tableta # nu, buget # mediu, sistem_operare # nu_are, dimensiune # mare,  greutate # mare, tip_storage # hdd, ram # mediu, placa_video # da}
 ###############
 
 solutie --- alienware
-descriere --- 'Descriere alienware'
+descriere --- 'Laptopul perfect pentru gaming, fara nici un compromis. Nici un detaliu nu a fost omis pentru a asigura experienta perfecta, fie ca vorbim de gaming sau alta utilizare a laptopului.'
 imagine --- {'img/alienware.jpg'}
 proprietati --- {tableta # nu, buget # mare, sistem_operare # windows, dimensiune # mare,  greutate # mare, tip_storage # sshd, ram # mediu, placa_video # da}
 ###############
 
 solutie --- hp_probook
-descriere --- 'Descriere hp_probook'
+descriere --- 'Laptop HP ProBook 455 G5 Cu caracteristici complete, subtire si usor, modelul HP ProBook 455 permite profesionistilor sa fie productivi, atat la birou cat si in deplasare. Design-ul elegant, precizia liniilor si curburile subtile si durata mare de viata a acumulatorului, fac ca acest dispozitiv ProBook sa fie esential pentru echipele de lucru moderne.'
 imagine --- {'img/hp_multimedia.jpg'} 
 proprietati --- {tableta # nu, buget # mediu, sistem_operare # windows, dimensiune # medie,  greutate # medie, tip_storage # hdd, ram # putin}
 ###############
 
 solutie --- lenovo_multimedia
-descriere --- 'Descriere lenovo_multimedia'
+descriere --- 'Un laptop nu este doar o bucata de electronica - este si o investitie. De aceea am conceput Ideapad 330 cu un finisaj special de protectie pentru a va proteja impotriva uzurii, precum si cu detalii din cauciuc pentru a maximiza ventilatia si a prelungi durata de viata a componentelor.'
 imagine --- {'img/lenovo_multimedia.jpg'} 
 proprietati --- {tableta # nu, buget # mediu, sistem_operare # fara_sistem_operare, dimensiune # mare,  greutate # mare, tip_storage # hdd, ram # putin}
 ###############
